@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/onboarding/onboarding_screens.dart';
 import 'package:qr_talkie/presentation/widgets/custom_text.dart';
-import 'package:qr_talkie/utils/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,6 +13,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+    @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 5), () {
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
+          return const OnBoardingScreen();
+        },
+      ));
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
