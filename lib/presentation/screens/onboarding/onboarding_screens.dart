@@ -11,7 +11,7 @@ class _OnBoardingState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("data"),
+      body: Text("datahhhhh"),
     );
   }
 }
