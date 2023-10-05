@@ -12,7 +12,7 @@ class CustomFontStyle {
       TextOverflow? overflow}) {
     return TextStyle(
         height: height,
-        // fontFamily: "Manrope",
+        fontFamily: "Poppins",
         fontWeight: fontWeight,
         fontSize: fontSize,
         decoration: decoration,

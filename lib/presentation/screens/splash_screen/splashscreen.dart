@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/onboarding/onboarding_screens.dart';
-import 'package:qr_talkie/presentation/widgets/custom_text.dart';
+
+import '../../../utils/custom_font_style.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -50,11 +51,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     width: 100.w,
                     height: 120.h,
                   ),
-                  CustomText(
-                    text: 'QR Talkie',
-                    fontSize: 19.29.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  Text('QR Talkie',style:CustomFontStyle().common(fontSize: 19.29,fontWeight: FontWeight.w700))
+           
                 ],
               )),
         ],
