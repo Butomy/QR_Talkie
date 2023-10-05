@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/onboarding/widgets/circle_progressbar.dart';
 import 'package:qr_talkie/presentation/screens/onboarding/widgets/introductionlist.dart';
 import 'package:qr_talkie/utils/colors.dart';
-
 
 /// A IntroScreen Class.
 
@@ -38,53 +36,54 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
-        color:Colors.transparent,
-        child: Stack(
-          children: [            
-            PageView(
+      color: Colors.black,
+      child: Stack(
+        children: [
+          PageView(
               physics: NeverScrollableScrollPhysics(),
-            //  physics: ClampingScrollPhysics(),
+              //  physics: ClampingScrollPhysics(),
               controller: _pageController,
               onPageChanged: (int page) {
                 setState(() {
                   _currentPage = page;
                 });
               },
-              children:[...widget.introductionList!,
-             ]
-            ),
-       Positioned(top: 0,bottom: 0,right: 0,left: 0,
-        child: Padding(
-          padding:  EdgeInsets.only(top:ScreenUtil().screenHeight/1.5),
-          child: _customProgress(),
-        )),
-          ],
-        ),
+              children: [
+                ...widget.introductionList!,
+              ]),
+          Positioned(
+              top: 0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: Padding(
+                padding: EdgeInsets.only(top: ScreenUtil().screenHeight / 1.5),
+                child: _customProgress(),
+              )),
+        ],
       ),
     );
   }
-
 
   Widget _customProgress() {
     return Stack(
       alignment: Alignment.center,
       children: [
-        Container(
+        SizedBox(
           width: 80.w,
           height: 80.h,
           child: Circleprogress(
-            backgroundColor:white,
-            foregroundColor:primaryColor,
+            backgroundColor: white,
+            foregroundColor: primaryColor,
             value: ((_currentPage + 1) * 1.0 / widget.introductionList!.length),
           ),
         ),
         Container(
           height: 60.h,
           width: 60.w,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color:white,
+            color: white,
           ),
           child: IconButton(
             onPressed: () {
@@ -95,7 +94,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     )
                   : widget.onTapSkipButton!();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_forward_ios,
               color: primaryColor,
             ),

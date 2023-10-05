@@ -24,8 +24,9 @@ class _LoginpageState extends State<Loginpage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             Padding(
-                padding: EdgeInsets.only(left: 15, top: 25,right: 15,bottom: 25),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, top: 25, right: 15, bottom: 25),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -41,10 +42,8 @@ class _LoginpageState extends State<Loginpage> {
                         ),
                       ),
                     ),
-                   
                     Text(
                       'Welcome Back',
-                      
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -140,13 +139,15 @@ class _LoginpageState extends State<Loginpage> {
                       // const SizedBox(
                       //   height: 9,
                       // ),
-                     
-                     CustomTextField(hintText: "Phone number",),
-                     CustomTextField(hintText: "Password",
-                   //  isPasswordType: true,
-                     onTap: () {
-                       
-                     },),
+
+                      CustomTextField(
+                        hintText: "Phone number",
+                      ),
+                      CustomTextField(
+                        hintText: "Password",
+                        //  isPasswordType: true,
+                        onTap: () {},
+                      ),
                       Align(
                         alignment: Alignment.topRight,
                         child: Text(

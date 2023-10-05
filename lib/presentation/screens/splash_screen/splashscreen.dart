@@ -40,26 +40,24 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.fill,
             ),
           ),
-          Positioned(
-              left: 0,
-              top: 0,
-              bottom: 0,
-              right: 0,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/Group 331.png",
-                    width: 100.w,
-                    height: 120.h,
-                  ),
-                  Text('QR Talkie',
-                      style: CustomFontStyle().common(
-                          fontSize: 19.29,
-                          fontWeight: FontWeight.w700,
-                          color: white))
-                ],
-              )),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/images/Group 331.png",
+                  width: 100.w,
+                  height: 120.h,
+                ),
+                Text('QR Talkie',
+                    style: CustomFontStyle().common(
+                        fontSize: 19.29.sp,
+                        fontWeight: FontWeight.w700,
+                        color: white))
+              ],
+            ),
+          ),
         ],
       ),
     );
