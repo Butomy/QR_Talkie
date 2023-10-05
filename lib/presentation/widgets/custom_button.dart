@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/utils/colors.dart';
+
+import '../../utils/custom_font_style.dart';
 
 class CustomButton extends StatelessWidget {
   final Function()? onPress;
@@ -45,7 +46,7 @@ class CustomButton extends StatelessWidget {
       ),
       onPressed: isLoading ? null : onPress,
       child: isLoading
-          ? kLoading
+          ? Center(child: CircularProgressIndicator(color: Colors.white))
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,7 +56,7 @@ class CustomButton extends StatelessWidget {
                     style: textStyle ??
                         CustomFontStyle().common(
                             height: 0,
-                            color: textColor ?? raisinBlack,
+                            color: textColor ?? Color(0xFF242424),
                             fontWeight: FontWeight.w800,
                             fontSize: 16.sp)),
                 Visibility(

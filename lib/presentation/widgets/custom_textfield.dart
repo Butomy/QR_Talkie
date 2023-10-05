@@ -1,7 +1,7 @@
-import 'package:butomyapp/utils/colors.dart';
-import 'package:butomyapp/utils/helper/custom_font_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../utils/custom_font_style.dart';
 
 class CustomTextField extends StatefulWidget {
   final void Function()? onTap;
@@ -42,7 +42,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       readOnly: widget.readonly,
       focusNode: widget.focusNode,
       style: CustomFontStyle().common(
-          color: raisinBlack, fontWeight: FontWeight.w600, fontSize: 13.sp),
+          color: Color(0xFF242424),
+          fontWeight: FontWeight.w600,
+          fontSize: 13.sp),
       maxLength: widget.maxLength,
       maxLines: widget.maxLine,
       controller: widget.controller,
@@ -50,7 +52,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       validator: widget.validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: widget.isPasswordType ? _obscureText : false,
-      cursorColor: btmYellow,
+      cursorColor: Colors.black12,
       decoration: InputDecoration(
           counter: const SizedBox.shrink(),
           contentPadding:
@@ -59,7 +61,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
           hintText: widget.hintText,
           hintStyle: widget.hintstyle ??
               CustomFontStyle().common(
-                  color: btmGray, fontWeight: FontWeight.w600, fontSize: 13.sp),
+                  color: Color(0xFF808080),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 13.sp),
           suffixIcon: widget.isPasswordType
               ? GestureDetector(
                   onTap: () {
@@ -69,7 +73,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   },
                   child: Icon(
                     _obscureText ? Icons.visibility : Icons.visibility_off,
-                    color: btmGray,
+                    color: Color(0xFF808080),
                   ),
                 )
               : null,
