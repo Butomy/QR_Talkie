@@ -74,7 +74,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   },
                   child: Icon(
                     _obscureText ? Icons.visibility : Icons.visibility_off,
-                    color: Color(0xFF808080),
+                    color: Color(0xFFB5B5B5),
                   ),
                 )
               : null,
