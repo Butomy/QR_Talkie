@@ -1,20 +1,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 import '../../widgets/custom_textfield.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpState extends State<SignUp> {
  
   @override
   Widget build(BuildContext context) {
@@ -51,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Text(
-                      'Welcome Back',
+                      'New Here?',
                       style: CustomFontStyle().common(
                         color: Colors.white,
                         fontSize: 24.sp,
@@ -118,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                            textColor: white,
                            bgColor: primaryColor,
                            onPress: () {
-                            //  Navigator.push(context, MaterialPageRoute(builder:(context) {
-                            //    return const SignUp();
+                           //   Navigator.push(context, MaterialPageRoute(builder:(context) {
+                            //    return const Loginpage();
                             //  },));
                            },
                          ),

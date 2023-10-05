@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qr_talkie/presentation/screens/home.dart';
 import 'package:qr_talkie/presentation/screens/homepage/homepage.dart';
 import 'package:qr_talkie/presentation/screens/onboarding/widgets/screen.dart';
 import 'package:qr_talkie/presentation/screens/onboarding/widgets/introductionlist.dart';
