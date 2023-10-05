@@ -1,4 +1,5 @@
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
@@ -78,7 +79,8 @@ class _LoginPageState extends State<LoginPage> {
                     topRight: Radius.circular(16),
                   ),
                 ),
-                padding: EdgeInsets.all(15.0),
+                  padding: EdgeInsets.only(left: 15,right: 15,top: 30,),
+                
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -216,7 +218,14 @@ class _LoginPageState extends State<LoginPage> {
                                fontWeight: FontWeight.w400,
                              ),
                            ),
-                           TextSpan(
+                           TextSpan(  recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return const SignUp();
+                                    },
+                                  ));
+                                },
                              text: 'Sign Up',
                              style:CustomFontStyle().common(
                                color: blue6ec,

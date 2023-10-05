@@ -1,6 +1,8 @@
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/login/loginpage.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -60,7 +62,7 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    Text('Login Now to access your\nQR Talki Account',
+                    Text('Signup today to start your\njourney!',
                         style: CustomFontStyle().common(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
@@ -77,7 +79,7 @@ class _SignUpState extends State<SignUp> {
                     topRight: Radius.circular(16),
                   ),
                 ),
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.only(left: 15,right: 15,top: 30,),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -89,31 +91,26 @@ class _SignUpState extends State<SignUp> {
                          color: grey,
                        ),
                      ),
+                       CustomTextField(
+                       hintText: "Create Password",
+                       hintstyle: TextStyle(
+                         fontSize: 14.sp,
+                         fontWeight: FontWeight.w400,
+                         color: grey,
+                       ),
+                     ),
                      CustomTextField(
-                       hintText: "Password",
+                       hintText: "Confirm Password",
                        hintstyle: TextStyle(
                            fontSize: 14.sp,
                            fontWeight: FontWeight.w400,
                            color: grey),
-                       isPasswordType: true,
-                       maxLine: 1,
-                       onTap: () {},
+                       
                      ),
-                     Align(
-                       alignment: Alignment.topRight,
-                       child: Text(
-                         'Forgot Password ?',
-                         style: CustomFontStyle().common(
-                           color: black2c,
-                           fontSize: 13.sp,
-                           fontWeight: FontWeight.w400,
-                         ),
-                       ),
-                     ),
-                                Padding(
+                               Padding(
                          padding: const EdgeInsets.only(top: 30,bottom: 30),
                          child: CustomButton(
-                           text: "Login",
+                           text: "Sign Up",
                            textColor: white,
                            bgColor: primaryColor,
                            onPress: () {
@@ -208,15 +205,22 @@ class _SignUpState extends State<SignUp> {
                        TextSpan(
                          children: [
                            TextSpan(
-                             text: 'Don\'t have an account ? ',
+                             text: 'Already have an account ? ',
                              style: CustomFontStyle().common(
                                color: black2c,
                                fontSize: 14.sp,
                                fontWeight: FontWeight.w400,
                              ),
                            ),
-                           TextSpan(
-                             text: 'Sign Up',
+                           TextSpan(  recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return const LoginPage();
+                                    },
+                                  ));
+                                },
+                             text: 'Sign In',
                              style:CustomFontStyle().common(
                                color: blue6ec,
                                fontSize: 14.sp,

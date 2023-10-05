@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/login/loginpage.dart';
+import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -79,7 +80,7 @@ class _HomepageState extends State<Homepage> {
                             bgColor: white,
                             onPress: () {
                               Navigator.push(context, MaterialPageRoute(builder:(context) {
-                                return LoginPage();
+                                return SignUp();
                               },));
                             },
                           ),

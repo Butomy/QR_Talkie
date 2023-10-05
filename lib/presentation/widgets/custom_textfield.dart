@@ -58,7 +58,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           counter: const SizedBox.shrink(),fillColor: Color(0xFFF0EFEF), filled: true,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-          constraints: BoxConstraints(minHeight:60.h),
+          constraints: BoxConstraints(minHeight:65.h),
           hintText: widget.hintText,
           hintStyle: widget.hintstyle ??
               CustomFontStyle().common(
