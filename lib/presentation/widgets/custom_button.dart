@@ -57,8 +57,8 @@ class CustomButton extends StatelessWidget {
                         CustomFontStyle().common(
                             height: 0,
                             color: textColor ?? Color(0xFF242424),
-                            fontWeight: FontWeight.w800,
-                            fontSize: 16.sp)),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.sp)),
                 Visibility(
                     visible: icon != null,
                     child: const SizedBox(

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/onboarding/onboarding_screens.dart';
+import 'package:qr_talkie/utils/colors.dart';
 
 import '../../../utils/custom_font_style.dart';
 
@@ -14,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-    @override
+  @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
@@ -25,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +53,11 @@ class _SplashScreenState extends State<SplashScreen> {
                     width: 100.w,
                     height: 120.h,
                   ),
-                  Text('QR Talkie',style:CustomFontStyle().common(fontSize: 19.29,fontWeight: FontWeight.w700))
-           
+                  Text('QR Talkie',
+                      style: CustomFontStyle().common(
+                          fontSize: 19.29,
+                          fontWeight: FontWeight.w700,
+                          color: white))
                 ],
               )),
         ],

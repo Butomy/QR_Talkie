@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/utils/colors.dart';
 
 import '../../utils/custom_font_style.dart';
 
@@ -43,8 +44,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       focusNode: widget.focusNode,
       style: CustomFontStyle().common(
           color: Color(0xFF242424),
-          fontWeight: FontWeight.w600,
-          fontSize: 13.sp),
+          fontWeight: FontWeight.w400,
+          fontSize: 14.sp),
       maxLength: widget.maxLength,
       maxLines: widget.maxLine,
       controller: widget.controller,
@@ -52,18 +53,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
       validator: widget.validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: widget.isPasswordType ? _obscureText : false,
-      cursorColor: Colors.black12,
+      cursorColor: primaryColor,
       decoration: InputDecoration(
-          counter: const SizedBox.shrink(),
+          counter: const SizedBox.shrink(),fillColor: Color(0xFFF0EFEF), filled: true,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-          constraints: BoxConstraints(minHeight: 55.h),
+          constraints: BoxConstraints(minHeight:60.h),
           hintText: widget.hintText,
           hintStyle: widget.hintstyle ??
               CustomFontStyle().common(
-                  color: Color(0xFF808080),
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13.sp),
+                 color: Color(0xFFA8A7A7),
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14.sp),
           suffixIcon: widget.isPasswordType
               ? GestureDetector(
                   onTap: () {
@@ -78,17 +79,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : null,
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Colors.black12)),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Color(0xFFF0EFEF))
+              ),
           errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(8),
               borderSide: const BorderSide(color: Colors.redAccent)),
           focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Colors.black12)),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Color(0xFFF0EFEF))),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Colors.black12))),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color:Color(0xFFF0EFEF)))),
     );
   }
 }

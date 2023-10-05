@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intro_screen_onboarding_flutter/circle_progress_bar.dart';
-import 'package:qr_talkie/presentation/screens/onboarding/introductionlist.dart';
+import 'package:qr_talkie/presentation/screens/onboarding/widgets/circle_progressbar.dart';
+import 'package:qr_talkie/presentation/screens/onboarding/widgets/introductionlist.dart';
 import 'package:qr_talkie/utils/colors.dart';
 
 
@@ -38,37 +38,28 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: Container(
-          color:Colors.transparent,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40.0),
-            child: Column(
-           //   crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-              
-                Expanded(
-                  child: Container(
-                    // height: 550.0,
-                    child: PageView(
-                      physics: NeverScrollableScrollPhysics(),
-                    //  physics: ClampingScrollPhysics(),
-                      controller: _pageController,
-                      onPageChanged: (int page) {
-                        setState(() {
-                          _currentPage = page;
-                        });
-                      },
-                      children: widget.introductionList!,
-                    ),
-                  ),
-                ),
-        
-                _customProgress(),
-              ],
+      child: Container(
+        color:Colors.transparent,
+        child: Stack(
+          children: [            
+            PageView(
+              physics: NeverScrollableScrollPhysics(),
+            //  physics: ClampingScrollPhysics(),
+              controller: _pageController,
+              onPageChanged: (int page) {
+                setState(() {
+                  _currentPage = page;
+                });
+              },
+              children:[...widget.introductionList!,
+             ]
             ),
-          ),
+       Positioned(top: 0,bottom: 0,right: 0,left: 0,
+        child: Padding(
+          padding:  EdgeInsets.only(top:ScreenUtil().screenHeight/1.5),
+          child: _customProgress(),
+        )),
+          ],
         ),
       ),
     );
@@ -82,15 +73,15 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         Container(
           width: 80.w,
           height: 80.h,
-          child: CircleProgressBar(
+          child: Circleprogress(
             backgroundColor:white,
             foregroundColor:primaryColor,
             value: ((_currentPage + 1) * 1.0 / widget.introductionList!.length),
           ),
         ),
         Container(
-          height: 55.h,
-          width: 55.w,
+          height: 60.h,
+          width: 60.w,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color:white,
@@ -99,7 +90,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             onPressed: () {
               _currentPage != widget.introductionList!.length - 1
                   ? _pageController.nextPage(
-                      duration: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 500),
                       curve: Curves.ease,
                     )
                   : widget.onTapSkipButton!();
