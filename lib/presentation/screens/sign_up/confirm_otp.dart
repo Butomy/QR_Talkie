@@ -5,7 +5,6 @@ import 'package:qr_talkie/presentation/screens/sign_up/profile_setup.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
-
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 
 class Confirmpage extends StatefulWidget {
