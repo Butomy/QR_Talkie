@@ -40,15 +40,17 @@ class _ConfirmpageState extends State<Confirmpage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20.r,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 5),
-                      child: Icon(
-                        Icons.arrow_back_ios_new,
-                        color: primaryColor,
-                        size: 20.sp,
+                InkWell(onTap:(){ Navigator.pop(context);},
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 20.r,
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 5),
+                        child: Icon(
+                          Icons.arrow_back_ios_new,
+                          color: primaryColor,
+                          size: 20.sp,
+                        ),
                       ),
                     ),
                   ),

@@ -4,6 +4,7 @@ const primaryColor = Color(0xFF006CEC);
 const white = Color(0xffFFFFFF);
 const grey = Color(0xFFA8A7A7);
 const black2c = Color(0xFF2C2C2C);
+const black10 = Color(0xFF101010);
 const black97=Color(0xFF979797);
 const ash_eef=Color(0xFFF0EFEF);
 const blue6ec=Color(0xFF0086EC);
