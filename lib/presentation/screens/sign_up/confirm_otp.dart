@@ -20,6 +20,7 @@ class _ConfirmpageState extends State<Confirmpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: primaryColor,
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -71,70 +72,82 @@ class _ConfirmpageState extends State<Confirmpage> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 118.h,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: PinInputTextField(
-                      pinLength: 4,
-                      decoration: BoxLooseDecoration(
-                          strokeColorBuilder: const FixedColorBuilder(greyef),
-                          radius: Radius.circular(6.r),
-                          bgColorBuilder: const FixedColorBuilder(greyef))),
-                ),
-              ),
-              // const Spacer(),
-              Padding(
-                  padding: const EdgeInsets.all(16.0),
+              Flexible(
+                child: Container(
+                  decoration: const BoxDecoration(
+                      color: white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10))),
                   child: Column(
                     children: [
-                      CustomButton(
-                        text: "Verify",
-                        bgColor: primaryColor,
-                        onPress: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const ProfileSetup();
-                            },
-                          ));
-                        },
-                        textColor: white,
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: PinInputTextField(
+                            pinLength: 4,
+                            decoration: BoxLooseDecoration(
+                                strokeColorBuilder:
+                                    const FixedColorBuilder(greyef),
+                                radius: Radius.circular(6.r),
+                                bgColorBuilder:
+                                    const FixedColorBuilder(greyef))),
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "Didn’t receive a code ?",
-                              style: CustomFontStyle().common(
-                                color: black97,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Navigator.push(context, MaterialPageRoute(
-                                  //   builder: (context) {
-                                  //     return const LoginPage();
-                                  //   },
-                                  // ));
+                      // const Spacer(),
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              CustomButton(
+                                text: "Verify",
+                                bgColor: primaryColor,
+                                onPress: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return const ProfileSetup();
+                                    },
+                                  ));
                                 },
-                              text: ' Resend',
-                              style: CustomFontStyle().common(
-                                color: blue6ec,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
+                                textColor: white,
                               ),
-                            ),
-                          ],
-                        ),
-                      )
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "Didn’t receive a code ?",
+                                      style: CustomFontStyle().common(
+                                        color: black97,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          // Navigator.push(context, MaterialPageRoute(
+                                          //   builder: (context) {
+                                          //     return const LoginPage();
+                                          //   },
+                                          // ));
+                                        },
+                                      text: ' Resend',
+                                      style: CustomFontStyle().common(
+                                        color: blue6ec,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          )),
                     ],
-                  )),
+                  ),
+                ),
+              )
             ],
           ),
         ),
