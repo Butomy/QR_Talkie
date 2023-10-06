@@ -11,3 +11,5 @@ const ash_eef=Color(0xFFF0EFEF);
 const blue6ec=Color(0xFF0086EC);
 const bluuedec=Color(0xff006DEC);
 const greyef= Color(0xFFF0EFEF);
+const bluuefc= Color(0x2834A3FC);
+const lightblue= Color(0xFFDFF0FF);
