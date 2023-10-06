@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/login/widgets/social_button.dart';
@@ -231,7 +232,13 @@ class _LoginPageState extends State<LoginPage> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                TextSpan(
+                                TextSpan(recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return const SignUp();
+                                    },
+                                  ));},
                                   text: 'Sign Up',
                                   style: CustomFontStyle().common(
                                     color: blue6ec,
