@@ -16,6 +16,7 @@ class CustomTextField extends StatefulWidget {
   final TextStyle? hintstyle;
   final bool readonly;
   final FocusNode? focusNode;
+  final Widget? suffixIcon;
   const CustomTextField(
       {super.key,
       this.controller,
@@ -25,6 +26,7 @@ class CustomTextField extends StatefulWidget {
       this.hintstyle,
       this.maxLine,
       this.validator,
+      this.suffixIcon,
       this.focusNode,
       this.isPasswordType = false,
       this.readonly = false,
@@ -55,33 +57,35 @@ class _CustomTextFieldState extends State<CustomTextField> {
       obscureText: widget.isPasswordType ? _obscureText : false,
       cursorColor: primaryColor,
       decoration: InputDecoration(
-          counter: const SizedBox.shrink(),fillColor: Color(0xFFF0EFEF), filled: true,
+          counter: const SizedBox.shrink(),
+          fillColor: Color(0xFFF0EFEF),
+          filled: true,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-          constraints: BoxConstraints(minHeight:65.h),
+          constraints: BoxConstraints(minHeight: 65.h),
           hintText: widget.hintText,
           hintStyle: widget.hintstyle ??
               CustomFontStyle().common(
-                 color: Color(0xFFA8A7A7),
+                  color: Color(0xFFA8A7A7),
                   fontWeight: FontWeight.w400,
                   fontSize: 14.sp),
-          suffixIcon: widget.isPasswordType
-              ? GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                  child: Icon(
-                    _obscureText ? Icons.visibility : Icons.visibility_off,
-                    color: Color(0xFFB5B5B5),
-                  ),
-                )
-              : null,
+          suffixIcon: widget.suffixIcon ??
+              (widget.isPasswordType
+                  ? GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      child: Icon(
+                        _obscureText ? Icons.visibility : Icons.visibility_off,
+                        color: Color(0xFFB5B5B5),
+                      ),
+                    )
+                  : null),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xFFF0EFEF))
-              ),
+              borderSide: const BorderSide(color: Color(0xFFF0EFEF))),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: const BorderSide(color: Colors.redAccent)),
@@ -90,7 +94,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               borderSide: const BorderSide(color: Color(0xFFF0EFEF))),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color:Color(0xFFF0EFEF)))),
+              borderSide: const BorderSide(color: Color(0xFFF0EFEF)))),
     );
   }
 }
