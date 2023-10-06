@@ -75,14 +75,14 @@ class _ConfirmpageState extends State<Confirmpage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 110.h,
+                  height: 118.h,
                   child: Padding(
-                    padding: EdgeInsets.all(25),
+                    padding: EdgeInsets.all(30),
                     child: PinInputTextField(
                         pinLength: 4,
                         decoration: BoxLooseDecoration(
                             strokeColorBuilder: const FixedColorBuilder(greyef),
-                            radius: Radius.circular(4.r),
+                            radius: Radius.circular(8.r),
                             bgColorBuilder: const FixedColorBuilder(greyef))),
                   ),
                 )
