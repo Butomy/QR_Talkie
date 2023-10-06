@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/sign_up/confirm_otp.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -76,7 +77,7 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                 ),
-                Expanded(
+                Flexible(
                   child: Container(
                     margin: EdgeInsets.only(top: 25.h),
                     decoration: const BoxDecoration(
@@ -101,11 +102,11 @@ class _SignUpState extends State<SignUp> {
                             color: grey,
                           ),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
+                        // const SizedBox(
+                        //   height: 5,
+                        // ),
                         CustomTextField(
-                          validator: ValidationUtil(context).phoneValidation,
+                          validator: ValidationUtil(context).passwordValidation,
                           hintText: "Create Password",
                           controller: passCtrl,
                           hintstyle: TextStyle(
@@ -114,14 +115,13 @@ class _SignUpState extends State<SignUp> {
                             color: grey,
                           ),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
+                        // const SizedBox(
+                        //   height: 5,
+                        // ),
                         CustomTextField(
                           controller: confirmPassCtrl,
                           validator: (value) => ValidationUtil(context)
-                              .confirmPasswordValidation(
-                                  confirmPassCtrl.text, passCtrl.text),
+                              .confirmPasswordValidation(value, passCtrl.text),
                           hintText: "Confirm Password",
                           hintstyle: TextStyle(
                               fontSize: 14.sp,
@@ -139,6 +139,10 @@ class _SignUpState extends State<SignUp> {
                           textColor: white,
                           bgColor: primaryColor,
                           onPress: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Confirmpage();
+                            }));
                             // if (_formKey.currentState!.validate()) {}
                           },
                         ),

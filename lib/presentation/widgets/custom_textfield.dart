@@ -55,16 +55,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
       obscureText: widget.isPasswordType ? _obscureText : false,
       cursorColor: primaryColor,
       decoration: InputDecoration(
-          counter: const SizedBox.shrink(),
-          fillColor: Color(0xFFF0EFEF),
-          filled: true,
+          counter: const SizedBox.shrink(),fillColor: Color(0xFFF0EFEF), filled: true,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-          constraints: BoxConstraints(minHeight: 60.h),
+          constraints: BoxConstraints(minHeight:65.h),
           hintText: widget.hintText,
           hintStyle: widget.hintstyle ??
               CustomFontStyle().common(
-                  color: Color(0xFFA8A7A7),
+                 color: Color(0xFFA8A7A7),
                   fontWeight: FontWeight.w400,
                   fontSize: 14.sp),
           suffixIcon: widget.isPasswordType
@@ -82,7 +80,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
               : null,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xFFF0EFEF))),
+              borderSide: const BorderSide(color: Color(0xFFF0EFEF))
+              ),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: const BorderSide(color: Colors.redAccent)),
@@ -91,7 +90,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               borderSide: const BorderSide(color: Color(0xFFF0EFEF))),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xFFF0EFEF)))),
+              borderSide: const BorderSide(color:Color(0xFFF0EFEF)))),
     );
   }
 }
