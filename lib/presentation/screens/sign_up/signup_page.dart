@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/login/loginpage.dart';
+import 'package:qr_talkie/presentation/screens/sign_up/confirm_otp.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -71,7 +72,7 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
 
-              Container(color: bluuedec,
+              Container(//color: bluuedec,height: ScreenUtil().screenHeight,
                 child: Container( decoration: const BoxDecoration(
                   color: white,
                   borderRadius: BorderRadius.only(
@@ -114,9 +115,9 @@ class _SignUpState extends State<SignUp> {
                            textColor: white,
                            bgColor: primaryColor,
                            onPress: () {
-                           //   Navigator.push(context, MaterialPageRoute(builder:(context) {
-                            //    return const Loginpage();
-                            //  },));
+                             Navigator.push(context, MaterialPageRoute(builder:(context) {
+                               return const Confirmpage();
+                             },));
                            },
                          ),
                        ),

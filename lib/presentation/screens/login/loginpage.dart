@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              Container(color: bluuedec,
+              Container(color: bluuedec,height: ScreenUtil().screenHeight/2,
                 child: Container( decoration: const BoxDecoration(
                   color: white,
                   borderRadius: BorderRadius.only(
