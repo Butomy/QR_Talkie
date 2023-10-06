@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/home_main_page/home_main.dart';
 import 'package:qr_talkie/presentation/screens/login/widgets/social_button.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
@@ -141,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                             // }
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const SignUp();
+                                return const HomemainPage();
                               },
                             ));
                           },
