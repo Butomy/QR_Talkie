@@ -17,4 +17,6 @@ const lightblue= Color(0xFFDFF0FF);
 const greyee=Color(0xFF4995EE);
 const  greybeb=Color(0x44DADBEB);
 const greyA7= Color(0xFFA8A7A7);
+const whitefo= Color(0xFFEFEFF0);
+const blueca= Color(0xFF1D2DCA);
 

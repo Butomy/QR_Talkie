@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/bottom_navigation/bottom_navigation.dart';
+import 'package:qr_talkie/presentation/screens/purchase_link_qr/linkqr.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -32,7 +33,7 @@ class _PurchasepageState extends State<Purchasepage> {
                 Text(
                   'QR Talkie ',
                   style: CustomFontStyle().common(
-                    color: Color(0xFFEFEFF0),
+                    color: whitefo,
                     fontSize: 16.87.sp,
                     fontWeight: FontWeight.w700,
                   ),
@@ -123,9 +124,9 @@ class _PurchasepageState extends State<Purchasepage> {
                     text:'Link QR Code',
                     bgColor: lightblue,
                     onPress: () {
-                      // Navigator.push(context,MaterialPageRoute(builder:(context) {
-                      //   return Unlockpage();
-                      // },));
+                      Navigator.push(context,MaterialPageRoute(builder:(context) {
+                        return const Categorypage();
+                      },));
                     },
                     textColor: blue6ec,
                   )),
