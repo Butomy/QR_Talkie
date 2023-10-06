@@ -29,7 +29,6 @@ class _AssetspagelinkedState extends State<Assetspagelinked> {
               ),
               Text(
                 'Your Asset Has been linked',
-                //  textAlign: TextAlign.center,
                 style: CustomFontStyle().common(
                   color: white,
                   fontSize: 20.sp,
