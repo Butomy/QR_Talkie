@@ -1,11 +1,18 @@
-
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/splash_screen/splashscreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp(), );
+  runApp(
+    DevicePreview(
+      enabled: false,
+      // !kReleaseMode,
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,21 +21,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(390, 844),
-        minTextAdapt: true,
-        splitScreenMode: true,    
-              child: MaterialApp(
-                  title:'QR Talkie ',
-                  debugShowCheckedModeBanner: false,
-                  theme: ThemeData(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    fontFamily: "Poppins",
-                    useMaterial3: true,
-                  ),
-               
-                  home: const SplashScreen()),
-            );
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+          title: 'QR Talkie ',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            fontFamily: "Poppins",
+            useMaterial3: true,
+          ),
+          home: const SplashScreen()),
+    );
   }
 }
