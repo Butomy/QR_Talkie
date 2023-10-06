@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/bottom_navigation/bottom_navigation.dart';
+import 'package:qr_talkie/presentation/widgets/custom_button.dart';
+import 'package:qr_talkie/presentation/widgets/custom_textfield.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
@@ -91,13 +93,30 @@ class _HomemainPageState extends State<HomemainPage> {
               children: [
                 Image.asset("assets/images/Rectangle 140.png"),
                 Positioned(
-                  child: Text(
-                    'Learn about QR Talki!',
-                    textAlign: TextAlign.center,
-                    style: CustomFontStyle().common(
-                      color: white,
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w600,
+                  bottom: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Learn about QR Talki!',
+                          textAlign: TextAlign.center,
+                          style: CustomFontStyle().common(
+                            color: white,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          'Corem ipsum dolor sit amet, consectetur adipiscing elit.',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10.31.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 )
@@ -150,7 +169,128 @@ class _HomemainPageState extends State<HomemainPage> {
                   )
                 ],
               ),
-            )
+            ),
+            Container(
+                width: ScreenUtil().screenWidth,
+                height: 267,
+                decoration: ShapeDecoration(
+                  color: greybeb,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Your Categories',
+                        style: TextStyle(
+                          color: black2c,
+                          fontSize: 20.23.sp,
+                          fontWeight: FontWeight.w600,
+                        )),
+                    Text(
+                      'Create your categories to categorize \nyour assets.  ',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.5600000023841858),
+                        fontSize: 12.83.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          backgroundColor: white,
+                          shape: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8.r),
+                                  topRight: Radius.circular(8.r))),
+                          useSafeArea: true,
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Padding(
+                              padding: MediaQuery.of(context).viewInsets,
+                              child: Container(
+                                width: ScreenUtil().screenWidth,
+                                // color: white,
+                                decoration: const BoxDecoration(color: white,
+                                    borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(24),
+                                  topRight: Radius.circular(24),
+                                )),
+                                padding: EdgeInsets.all(15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'Create category',
+                                      style: CustomFontStyle().common(
+                                        color: black2c,
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Enter the name of your category',
+                                      style: CustomFontStyle().common(
+                                        color: greyA7,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 8, bottom: 8),
+                                      child: CustomTextField(
+                                        hintText: 'Name of Category',
+                                      ),
+                                    ),
+                                    CustomButton(
+                                      text: "Create",
+                                      bgColor: primaryColor,
+                                      textColor: white,
+                                      onPress: () {},
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: ScreenUtil().screenWidth / 3,
+                        height: 49.h,
+                        margin: EdgeInsets.all(8),
+                        decoration: ShapeDecoration(
+                          color: lightblue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(7.02.r),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add,
+                              color: blue6ec,
+                            ),
+                            Text(
+                              'Create',
+                              style: TextStyle(
+                                color: blue6ec,
+                                fontSize: 14.04.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ))
           ],
         ),
       ),

@@ -19,23 +19,26 @@ class _PurchasepageState extends State<Purchasepage> {
         backgroundColor: black10,
         appBar: AppBar(
           backgroundColor: black,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/images/Group 331.png",
-                height: 30.h,
-                width: 40.w,
-              ),
-              Text(
-                'QR Talkie ',
-                style: CustomFontStyle().common(
-                  color: Color(0xFFEFEFF0),
-                  fontSize: 16.87.sp,
-                  fontWeight: FontWeight.w700,
+          title: Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Row(
+             
+              children: [
+                Image.asset(
+                  "assets/images/Group 331.png",
+                  height: 30.h,
+                  width:50.w,
                 ),
-              )
-            ],
+                Text(
+                  'QR Talkie ',
+                  style: CustomFontStyle().common(
+                    color: Color(0xFFEFEFF0),
+                    fontSize: 16.87.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         body: Container(

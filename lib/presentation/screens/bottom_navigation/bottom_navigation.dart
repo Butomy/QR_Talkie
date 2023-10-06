@@ -23,23 +23,26 @@ class _BottomnavigationbarcustomState extends State<Bottomnavigationbarcustom> {
           screens: const [
          HomemainPage(),
          Chatpage(),
-         Purchasepage()
+         Chatpage()
           ],
           navBarHeight: 50.h,
           items: [
             PersistentBottomNavBarItem(contentPadding: 0,
               icon:Image.asset("assets/images/home.png",height:20,width: 25,),
-              activeColorPrimary: grey,
+              inactiveIcon: Image.asset("assets/images/home.png",height:20,width: 25,),
+              activeColorPrimary:primaryColor,
              inactiveColorPrimary: ash_eef,
             ),
             PersistentBottomNavBarItem(contentPadding: 0,
               icon:Image.asset("assets/images/chat.png",height:20,width: 25,),
-              activeColorPrimary: white,
+              inactiveIcon:Image.asset("assets/images/chat.png",height:20,width: 25,) ,
+              activeColorPrimary:primaryColor,
              inactiveColorPrimary: ash_eef,
             ),
             PersistentBottomNavBarItem(contentPadding: 0,
               icon:Image.asset("assets/images/QR.png",height:20,width: 25,),
-              activeColorPrimary: white,
+              inactiveIcon:Image.asset("assets/images/QR.png",height:20,width: 25,) ,
+              activeColorPrimary:primaryColor,
               textStyle:
                   TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400),
               inactiveColorPrimary: ash_eef,

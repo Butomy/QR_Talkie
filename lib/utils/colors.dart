@@ -15,5 +15,6 @@ const bluuefc= Color(0x2834A3FC);
 const red=Color(0xFFEB4335);
 const lightblue= Color(0xFFDFF0FF);
 const greyee=Color(0xFF4995EE);
-// const lightblue= Color(0xFFDFF0FF);
+const  greybeb=Color(0x44DADBEB);
+const greyA7= Color(0xFFA8A7A7);
 
