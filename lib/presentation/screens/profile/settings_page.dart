@@ -18,81 +18,48 @@ List<String> items = [
   "Report",
   "About"
 ];
-// List<IconData> icons=[
-// Icons.person,
-//   Icons.policy_outlined,
-//   Icons.settings,
-//   Icons.share_location_outlined,
-//   Icons.flag_outlined,
-//   Icons.info_outline
-//
-// ];
-List<AssetImage> images = [
-  const AssetImage(
-    "assets/images/Frame (2).png",
-  ),
-  const AssetImage(
-    "assets/images/user (2) 1.png",
-  ),
-  const AssetImage(
-    "assets/images/Policy.png",
-  ),
-  const AssetImage(
-    "assets/images/Frame (2).png",
-  ),
-  const AssetImage(
-    "assets/images/Address.png",
-  ),
-  const AssetImage(
-    "assets/images/Frame (3).png",
-  ),
-  const AssetImage(
-    "assets/images/Frame (4).png",
-  ),
-];
+
 
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: white,
+    appBar: AppBar(surfaceTintColor: white,
+        toolbarHeight: 80.h,
+        leading: Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 42.w,
+                height: 42.h,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 0.8, color: greybeb)),
+                child: Icon(
+                  Icons.arrow_back_ios_new,
+                  color: blueca,
+                ),
+              ),
+            )),
         centerTitle: true,
         title: Text(
           'Settings',
           style: CustomFontStyle().common(
-            color: const Color(0xFF2C2C2C),
+            color: black2c,
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
           ),
         ),
-        leadingWidth: 140,
-        leading: Row(
-          children: [
-            const SizedBox(
-              width: 16,
-            ),
-            Container(
-              padding: const EdgeInsets.all(1.0),
-              decoration: const BoxDecoration(
-                color: Color(0Xffd6d6d6), // Border color
-                shape: BoxShape.circle,
-              ),
-              child: const CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 21,
-                child: Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: Color(0xFF2C2C2C),
-                ),
-              ),
-            ),
-          ],
-        ),
-        bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(16.0), child: Divider()),
+        bottom: PreferredSize(
+            preferredSize: Size(0, 0),
+            child: Divider(
+              height: 0,
+            )),
       ),
+
       backgroundColor: white,
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -116,8 +83,8 @@ class _SettingPageState extends State<SettingPage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8)),
                             ),
-                            child: Image(image: images[index])
-                            // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
+                            // child: Image(image: images[index])
+                             child: Icon(Icons.abc_outlined,color: const Color(0xFF2C2C2C),),
                             ),
                         const SizedBox(
                           width: 16,
