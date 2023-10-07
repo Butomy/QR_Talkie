@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 alignment: Alignment.center,
                 child: Stack(children: [
                   const CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/image 2.jpg"),
+                    backgroundImage: AssetImage("assets/images/image 2.png"),
                     radius: 50,
                   ),
                   Positioned(
