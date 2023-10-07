@@ -23,7 +23,29 @@ class ProfileSetup extends StatefulWidget {
 
 class _ProfileSetupState extends State<ProfileSetup> {
   String? dropvalue;
-  var items = ["Today", "Monthly", "Weekly", "Custom"];
+  var items = [
+    'United States',
+    'Canada',
+    'United Kingdom',
+    'Australia',
+    'Germany',
+    'France',
+    'Italy',
+    'Spain',
+    'Japan',
+    'China',
+    'India',
+    'Brazil',
+    'Mexico',
+    'Argentina',
+    'Russia',
+    'South Africa',
+    'Egypt',
+    'Kenya',
+    'Nigeria',
+    // Add more country names as needed
+  ];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -32,8 +54,8 @@ class _ProfileSetupState extends State<ProfileSetup> {
   }
 
   _loadValue() {
-    var isContain =
-        items.firstWhere(orElse: () => "false", (element) => element == '');
+    var isContain = items.firstWhere(
+        orElse: () => "false", (element) => element == 'Monthly');
     if (isContain != "false") {
       dropvalue = isContain;
     }
