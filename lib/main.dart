@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/splash_screen/splashscreen.dart';
-
+import 'package:qr_talkie/presentation/screens/profile/widgets/personal_data.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp(), );
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
                     useMaterial3: true,
                   ),
                
-                  home: const SplashScreen()),
+                  home: const PersonalData()),
             );
   }
 }
