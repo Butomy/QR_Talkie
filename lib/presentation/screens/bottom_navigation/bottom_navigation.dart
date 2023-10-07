@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:qr_talkie/presentation/screens/chat/chatpage.dart';
 import 'package:qr_talkie/presentation/screens/home_main_page/home_main.dart';
+import 'package:qr_talkie/presentation/screens/home_main_page/scan_purchase_updated_page.dart';
 import 'package:qr_talkie/presentation/screens/login/loginpage.dart';
 import 'package:qr_talkie/presentation/screens/purchase_link_qr/purchasepage.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
@@ -23,7 +24,7 @@ class _BottomnavigationbarcustomState extends State<Bottomnavigationbarcustom> {
           screens: const [
          HomemainPage(),
          Chatpage(),
-         Chatpage()
+        AssetspageUpdated()
           ],
           navBarHeight: 50.h,
           items: [

@@ -147,7 +147,7 @@ class _PurchasepageState extends State<Purchasepage> {
             ),
           ),
         ),
-      //bottomSheet: Bottomnavigationbarcustom(),
+      bottomSheet: Bottomnavigationbarcustom(),
         );
   }
 }

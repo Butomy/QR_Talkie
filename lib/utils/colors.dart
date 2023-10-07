@@ -23,3 +23,4 @@ const whitefo= Color(0xFFEFEFF0);
 const blueca= Color(0xFF1D2DCA);
 const greyF5= Color(0xFFF5F5F5);
 const greyc0=Color(0xFFC0C0C0);
+const green=Color(0xff13EC00);
