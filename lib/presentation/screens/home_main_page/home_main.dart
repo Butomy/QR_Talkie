@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/bottom_navigation/bottom_navigation.dart';
 import 'package:qr_talkie/presentation/screens/cart/cart_page.dart';
 import 'package:qr_talkie/presentation/screens/home_main_page/scan_purchase_page.dart';
+import 'package:qr_talkie/presentation/screens/profile/profile_page.dart';
 import 'package:qr_talkie/presentation/screens/purchase_link_qr/assetspage.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/presentation/widgets/custom_textfield.dart';
@@ -60,9 +61,15 @@ class _HomemainPageState extends State<HomemainPage> {
         ],
         leading: Padding(
           padding: const EdgeInsets.only(left: 8),
-          child: Image.asset(
-            "assets/images/Ellipse 20.png",
-            height: 45,
+          child: InkWell(onTap: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context){
+              return ProfilePage();
+            }));
+          },
+            child: Image.asset(
+              "assets/images/Ellipse 20.png",
+              height: 45,
+            ),
           ),
         ),
         title: Column(

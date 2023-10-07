@@ -121,9 +121,7 @@ class _CategorypageState extends State<Categorypage> {
                      text:'Add New Category',
                      bgColor: lightblue,
                      onPress: () {
-                       Navigator.push(context,MaterialPageRoute(builder:(context) {
-                         return const Categorypage();
-                       },));
+                      
                      },
                      textColor: blue6ec,
                    ),

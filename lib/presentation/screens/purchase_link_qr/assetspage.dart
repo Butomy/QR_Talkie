@@ -61,7 +61,9 @@ class _AssetspageState extends State<Assetspage> {
             height: 5,
           ),
           CustomTextField(),
-          CustomTextField(),
+          CustomTextField(
+            suffixIcon: Icon(Icons.file_copy_rounded),
+          ),
           Spacer(),
           CustomButton(
             text: 'Done',

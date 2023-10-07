@@ -1,9 +1,7 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/splash_screen/splashscreen.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
@@ -34,7 +32,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "Poppins",
             useMaterial3: true,
           ),
-          home: const SplashScreen()),
+          home: SplashScreen()),
     );
   }
 }
