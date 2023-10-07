@@ -10,22 +10,15 @@ class SettingPage extends StatefulWidget {
   State<SettingPage> createState() => _SettingPageState();
 }
 
-List<String> items = [
-  "Personal Data",
-  "Change Password",
-  "Chat Settings",
-  "Saved Address",
-  "Report",
-  "About"
-];
-
 
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(surfaceTintColor: white,
+      appBar: AppBar(
+        surfaceTintColor: white,
         toolbarHeight: 80.h,
+        backgroundColor: white,
         leading: Padding(
             padding: const EdgeInsets.only(left: 8),
             child: InkWell(
@@ -59,68 +52,263 @@ class _SettingPageState extends State<SettingPage> {
               height: 0,
             )),
       ),
-
-      backgroundColor: white,
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding:EdgeInsets.all(16),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                            padding: EdgeInsets.all(8),
-                            width: 40.w,
-                            height: 40.h,
-                            decoration: ShapeDecoration(
-                              color: const Color(0xFFF0EFEF),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                            ),
-                            // child: Image(image: images[index])
-                             child: Icon(Icons.abc_outlined,color: const Color(0xFF2C2C2C),),
-                            ),
-                        const SizedBox(
-                          width: 16,
+                // ListView.separated(
+                //   shrinkWrap: true,
+                //   physics: const NeverScrollableScrollPhysics(),
+                //   itemBuilder: (context, index) {
+                //     return Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //       children: [
+                //         Container(
+                //             padding: EdgeInsets.all(8),
+                //             width: 40.w,
+                //             height: 40.h,
+                //             decoration: ShapeDecoration(
+                //               color: const Color(0xFFF0EFEF),
+                //               shape: RoundedRectangleBorder(
+                //                   borderRadius: BorderRadius.circular(8)),
+                //             ),
+                //             // child: Image(image: images[index])
+                //              child: Icon(Icons.abc_outlined,color: const Color(0xFF2C2C2C),),
+                //             ),
+                //         const SizedBox(
+                //           width: 16,
+                //         ),
+                //         Expanded(
+                //           child: Text(
+                //             items[index],
+                //             style: CustomFontStyle().common(
+                //               color: const Color(0xFF2C2C2C),
+                //               fontSize: 16.sp,
+                //               fontWeight: FontWeight.w400,
+                //             ),
+                //           ),
+                //         ),
+                //         const Icon(
+                //           Icons.chevron_right_outlined,
+                //           color: Color(0xFF8C8C8C),
+                //         )
+                //       ],
+                //     );
+                //   },
+                //   separatorBuilder: (BuildContext context, int index) {
+                //     return Divider(
+                //       color: Colors.black.withOpacity(0.07999999821186066),
+                //       height: 25.h,
+                //     );
+                //   },
+                //   itemCount: items.length,
+                // ),
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      padding: EdgeInsets.all(5),
+                      decoration: ShapeDecoration(
+                        color: Color(0xFFF0EFEF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                      child: Image.asset("assets/images/user (2) 1.png"),
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Personal Data',
+                        style: CustomFontStyle().common(
+                          color: black2c,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
                         ),
-                        Expanded(
-                          child: Text(
-                            items[index],
-                            style: CustomFontStyle().common(
-                              color: const Color(0xFF2C2C2C),
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+                Divider(),
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      padding: EdgeInsets.all(5),
+                      decoration: ShapeDecoration(
+                        color: Color(0xFFF0EFEF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                      child: Image.asset("assets/images/Policy.png"),
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Change Password',
+                        style: CustomFontStyle().common(
+                          color: black2c,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+                Divider(),
+                InkWell(
+                  onTap: (){},
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40.w,
+                        height: 40.h,
+                        padding: EdgeInsets.all(5),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFFF0EFEF),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: Image.asset(
+                          "assets/images/settings.png",
+                          color: black26,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Chat Settings',
+                          style: CustomFontStyle().common(
+                            color: black2c,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
-                        const Icon(
-                          Icons.chevron_right_outlined,
-                          color: Color(0xFF8C8C8C),
-                        )
-                      ],
-                    );
-                  },
-                  separatorBuilder: (BuildContext context, int index) {
-                    return Divider(
-                      color: Colors.black.withOpacity(0.07999999821186066),
-                      height: 25.h,
-                    );
-                  },
-                  itemCount: items.length,
+                      ),
+                      Icon(Icons.arrow_forward_ios),
+                    ],
+                  ),
                 ),
+                Divider(),
+                InkWell(onTap: (){
+
+                },
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        padding: EdgeInsets.all(5),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFFF0EFEF),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: Image.asset(
+                          "assets/images/Address.png",
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Saved Address',
+                          style: CustomFontStyle().common(
+                            color: black2c,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      Icon(Icons.arrow_forward_ios),
+                    ],
+                  ),
+                ),
+                Divider(),
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      padding: EdgeInsets.all(5),
+                      decoration: ShapeDecoration(
+                        color: Color(0xFFF0EFEF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                      child: Image.asset(
+                        "assets/images/flag.png",
+                      ),
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Report',
+                        style: CustomFontStyle().common(
+                          color: black2c,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+                Divider(),
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      padding: EdgeInsets.all(5),
+                      decoration: ShapeDecoration(
+                        color: Color(0xFFF0EFEF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                      child: Image.asset(
+                        "assets/images/label.png",
+                      ),
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    Expanded(
+                      child: Text(
+                        'About',
+                        style: CustomFontStyle().common(
+                          color: black2c,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+                Divider(),
+
                 Container(
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height / 4),
                   width: double.infinity,
                   height: 68.h,
                   decoration: ShapeDecoration(
-                    color: const Color(0xFFDFF0FF),
+                    color: lightblue,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -131,7 +319,7 @@ class _SettingPageState extends State<SettingPage> {
                     children: [
                       const Icon(
                         Icons.headset_mic_outlined,
-                        color: Color(0xFF006CEC),
+                        color: primaryColor,
                         size: 28,
                       ),
                       const SizedBox(
@@ -140,7 +328,7 @@ class _SettingPageState extends State<SettingPage> {
                       Text(
                         'Feel Free to Ask, We ready to Help',
                         style: CustomFontStyle().common(
-                          color: const Color(0xFF006CEC),
+                          color: primaryColor,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                         ),

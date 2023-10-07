@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/bottom_navigation/bottom_navigation.dart';
 import 'package:qr_talkie/presentation/screens/purchase_link_qr/linkqr.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';

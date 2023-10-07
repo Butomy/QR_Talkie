@@ -25,3 +25,4 @@ const greyF5= Color(0xFFF5F5F5);
 const greyc0=Color(0xFFC0C0C0);
 const green=Color(0xff13EC00);
 const greyA5=Color(0xFFA5A5A5);
+const black26=Color(0xFF262626);
