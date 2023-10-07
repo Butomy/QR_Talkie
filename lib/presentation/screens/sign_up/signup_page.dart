@@ -79,7 +79,7 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                 ),
-                Expanded(
+                Flexible(
                   child: Container(
                     margin: EdgeInsets.only(top: 25.h),
                     decoration: const BoxDecoration(
@@ -104,11 +104,11 @@ class _SignUpState extends State<SignUp> {
                             color: grey,
                           ),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
+                        // const SizedBox(
+                        //   height: 5,
+                        // ),
                         CustomTextField(
-                          validator: ValidationUtil(context).phoneValidation,
+                          validator: ValidationUtil(context).passwordValidation,
                           hintText: "Create Password",
                           controller: passCtrl,
                           hintstyle: TextStyle(
@@ -117,14 +117,13 @@ class _SignUpState extends State<SignUp> {
                             color: grey,
                           ),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
+                        // const SizedBox(
+                        //   height: 5,
+                        // ),
                         CustomTextField(
                           controller: confirmPassCtrl,
                           validator: (value) => ValidationUtil(context)
-                              .confirmPasswordValidation(
-                                  confirmPassCtrl.text, passCtrl.text),
+                              .confirmPasswordValidation(value, passCtrl.text),
                           hintText: "Confirm Password",
                           hintstyle: TextStyle(
                               fontSize: 14.sp,
@@ -142,7 +141,8 @@ class _SignUpState extends State<SignUp> {
                           textColor: white,
                           bgColor: primaryColor,
                           onPress: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (context){
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
                               return Confirmpage();
                             }));
                             // if (_formKey.currentState!.validate()) {}

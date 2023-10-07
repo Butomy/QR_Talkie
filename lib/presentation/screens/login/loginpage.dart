@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/home_main_page/home_main.dart';
 import 'package:qr_talkie/presentation/screens/login/widgets/social_button.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
@@ -33,7 +32,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Container(
             height: ScreenUtil().screenHeight,
             width: ScreenUtil().screenWidth,
-            color: primaryColor,
+            decoration: const BoxDecoration(
+              color: primaryColor,
+              // image: DecorationImage(
+              //     image: AssetImage("assets/images/Frame 438.png"),
+              //     fit: BoxFit.cover)
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,11 +144,11 @@ class _LoginPageState extends State<LoginPage> {
                             // if (_formKey.currentState!.validate()) {
                             //
                             // }
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const HomemainPage();
-                              },
-                            ));
+                            // Navigator.push(context, MaterialPageRoute(
+                            //   builder: (context) {
+                            //     return const SignUp();
+                            //   },
+                            // ));
                           },
                         ),
                         SizedBox(
@@ -233,13 +237,15 @@ class _LoginPageState extends State<LoginPage> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                TextSpan(recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return const SignUp();
+                                TextSpan(
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(context, MaterialPageRoute(
+                                        builder: (context) {
+                                          return const SignUp();
+                                        },
+                                      ));
                                     },
-                                  ));},
                                   text: 'Sign Up',
                                   style: CustomFontStyle().common(
                                     color: blue6ec,
