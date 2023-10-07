@@ -79,9 +79,9 @@ class _ConfirmpageState extends State<Confirmpage> {
                 child: PinInputTextField(
                     pinLength: 4,
                     decoration: BoxLooseDecoration(
-                        strokeColorBuilder: const FixedColorBuilder(greyef),
+                        strokeColorBuilder: const FixedColorBuilder(ash_eef),
                         radius: Radius.circular(8.r),
-                        bgColorBuilder: const FixedColorBuilder(greyef))),
+                        bgColorBuilder: const FixedColorBuilder(ash_eef))),
               ),
             ),
             const Spacer(),

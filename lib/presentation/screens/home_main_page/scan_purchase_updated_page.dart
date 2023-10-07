@@ -5,14 +5,14 @@ import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
-class Assetspagelinked extends StatefulWidget {
-  const Assetspagelinked({super.key});
+class AssetspageUpdated extends StatefulWidget {
+  const AssetspageUpdated({super.key});
 
   @override
-  State<Assetspagelinked> createState() => _AssetspagelinkedState();
+  State<AssetspageUpdated> createState() => _AssetspageUpdatedState();
 }
 
-class _AssetspagelinkedState extends State<Assetspagelinked> {
+class _AssetspageUpdatedState extends State<AssetspageUpdated> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +29,7 @@ class _AssetspagelinkedState extends State<Assetspagelinked> {
                 height: 90.h,
               ),
               Text(
-                'Your Asset Has been linked',
+               'Your Asset Details \nHas been Updated',
                 style: CustomFontStyle().common(
                   color: white,
                   fontSize: 20.sp,
@@ -37,7 +37,7 @@ class _AssetspagelinkedState extends State<Assetspagelinked> {
                 ),
               ),
               Text(
-                'You Can view your asset from “Your QR’s”',
+              'You Can view your asset from “Your QR’s',
                 textAlign: TextAlign.center,
                 style: CustomFontStyle().common(
                   color: white,

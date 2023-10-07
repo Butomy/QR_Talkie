@@ -48,6 +48,7 @@ class _CategorypageState extends State<Categorypage> {
         ),
         bottom: PreferredSize(preferredSize: Size(0, 0), child: Divider()),
       ),
+    
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(

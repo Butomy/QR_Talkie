@@ -63,6 +63,7 @@ import 'package:qr_talkie/utils/colors.dart';
 
 import '../../utils/custom_font_style.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget {
   final String? title;
   final Widget? leading;
