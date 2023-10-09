@@ -5,6 +5,8 @@ import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
+import '../bottom_navigation/bottom_navigation.dart';
+
 class UnlockPage extends StatefulWidget {
   const UnlockPage({super.key});
 
@@ -13,8 +15,8 @@ class UnlockPage extends StatefulWidget {
 }
 
 class _UnlockPageState extends State<UnlockPage> {
-  double width = 1500;
-  double height = 500;
+  double width = 1500.w;
+  double height = 500.h;
   @override
   void initState() {
     // TODO: implement initState
@@ -24,10 +26,10 @@ class _UnlockPageState extends State<UnlockPage> {
 
   imageZoomOut() {
     print(width);
-    Future.delayed(Duration(microseconds: 50), () {
+    Future.delayed(const Duration(microseconds: 50), () {
       setState(() {
-        width = 420;
-        height == 500;
+        width = 420.w;
+        height == 500.h;
       });
     });
   }
@@ -114,7 +116,9 @@ class _UnlockPageState extends State<UnlockPage> {
                     onPress: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const Purchasepage();
+                        return const Bottomnavigationbarcustom(
+                          bottomBarIndex: 2,
+                        );
                       }));
                     },
                     textColor: white,

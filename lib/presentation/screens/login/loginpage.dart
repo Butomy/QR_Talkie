@@ -10,6 +10,7 @@ import 'package:qr_talkie/utils/custom_font_style.dart';
 import 'package:qr_talkie/utils/validation_util.dart';
 import '../../widgets/appbar_custom.dart';
 import '../../widgets/custom_textfield.dart';
+import '../bottom_navigation/bottom_navigation.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -147,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                             // }
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const HomemainPage();
+                                return const Bottomnavigationbarcustom();
                               },
                             ));
                           },

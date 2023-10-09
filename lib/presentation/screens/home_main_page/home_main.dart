@@ -10,6 +10,9 @@ import 'package:qr_talkie/presentation/widgets/custom_textfield.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
+import '../../../utils/bottomsheet_util.dart';
+import 'create_categories.dart';
+
 class HomemainPage extends StatefulWidget {
   const HomemainPage({super.key});
 
@@ -21,16 +24,18 @@ class _HomemainPageState extends State<HomemainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(surfaceTintColor: white,
+      appBar: AppBar(
+        surfaceTintColor: white,
         toolbarHeight: 90.h,
         actions: [
           Stack(
             children: [
-              InkWell(onTap: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context){
-                return const Cartpage();
-              }) );
-              },
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const Cartpage();
+                  }));
+                },
                 child: Image.asset(
                   "assets/images/Group 82.png",
                   height: 40,
@@ -61,11 +66,12 @@ class _HomemainPageState extends State<HomemainPage> {
         ],
         leading: Padding(
           padding: const EdgeInsets.only(left: 8),
-          child: InkWell(onTap: (){
-            Navigator.push(context,MaterialPageRoute(builder: (context){
-              return ProfilePage();
-            }));
-          },
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ProfilePage();
+              }));
+            },
             child: Image.asset(
               "assets/images/Ellipse 20.png",
               height: 45,
@@ -139,7 +145,7 @@ class _HomemainPageState extends State<HomemainPage> {
                   )
                 ],
               ),
-           Container(
+              Container(
                 margin: EdgeInsets.only(top: 15, bottom: 15),
                 padding: EdgeInsets.all(10.0),
                 height: ScreenUtil().screenHeight / 8,
@@ -216,67 +222,72 @@ class _HomemainPageState extends State<HomemainPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          showModalBottomSheet(
-                            backgroundColor: white,
-                            shape: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(8.r),
-                                    topRight: Radius.circular(8.r))),
-                            useSafeArea: true,
-                            isScrollControlled: true,
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Padding(
-                                padding: MediaQuery.of(context).viewInsets,
-                                child: Container(
-                                  width: ScreenUtil().screenWidth,
-                                  // color: white,
-                                  decoration: const BoxDecoration(color: white,
-                                      borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(24),
-                                    topRight: Radius.circular(24),
-                                  )),
-                                  padding: EdgeInsets.all(15),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        'Create category',
-                                        style: CustomFontStyle().common(
-                                          color: black2c,
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Enter the name of your category',
-                                        style: CustomFontStyle().common(
-                                          color: greyA7,
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 8, bottom: 8),
-                                        child: CustomTextField(
-                                          hintText: 'Name of Category',
-                                        ),
-                                      ),
-                                      CustomButton(
-                                        text: "Create",
-                                        bgColor: primaryColor,
-                                        textColor: white,
-                                        onPress: () {},
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          );
+                          bottomSheet(
+                              context: context,
+                              content: const CreateCategories());
+                          // showModalBottomSheet(
+                          //   backgroundColor: white,
+                          //   shape: OutlineInputBorder(
+                          //       borderSide: BorderSide.none,
+                          //       borderRadius: BorderRadius.only(
+                          //           topLeft: Radius.circular(8.r),
+                          //           topRight: Radius.circular(8.r))),
+                          //   useSafeArea: true,
+                          //   isScrollControlled: true,
+                          //   context: context,
+                          //   builder: (BuildContext context) {
+                          //     return Padding(
+                          //       padding: MediaQuery.of(context).viewInsets,
+                          //       child: Container(
+                          //         width: ScreenUtil().screenWidth,
+                          //         // color: white,
+                          //         decoration: const BoxDecoration(
+                          //             color: white,
+                          //             borderRadius: BorderRadius.only(
+                          //               topLeft: Radius.circular(24),
+                          //               topRight: Radius.circular(24),
+                          //             )),
+                          //         padding: EdgeInsets.all(15),
+                          //         child: Column(
+                          //           crossAxisAlignment:
+                          //               CrossAxisAlignment.start,
+                          //           mainAxisSize: MainAxisSize.min,
+                          //           children: [
+                          //             Text(
+                          //               'Create category',
+                          //               style: CustomFontStyle().common(
+                          //                 color: black2c,
+                          //                 fontSize: 18.sp,
+                          //                 fontWeight: FontWeight.w500,
+                          //               ),
+                          //             ),
+                          //             Text(
+                          //               'Enter the name of your category',
+                          //               style: CustomFontStyle().common(
+                          //                 color: greyA7,
+                          //                 fontSize: 14.sp,
+                          //                 fontWeight: FontWeight.w400,
+                          //               ),
+                          //             ),
+                          //             const Padding(
+                          //               padding: const EdgeInsets.only(
+                          //                   top: 8, bottom: 8),
+                          //               child: CustomTextField(
+                          //                 hintText: 'Name of Category',
+                          //               ),
+                          //             ),
+                          //             CustomButton(
+                          //               text: "Create",
+                          //               bgColor: primaryColor,
+                          //               textColor: white,
+                          //               onPress: () {},
+                          //             )
+                          //           ],
+                          //         ),
+                          //       ),
+                          //     );
+                          //   },
+                          // );
                         },
                         child: Container(
                           width: ScreenUtil().screenWidth / 3,
@@ -309,34 +320,59 @@ class _HomemainPageState extends State<HomemainPage> {
                       )
                     ],
                   )),
-           //////
-           Text(
-    'Your QR’s',
-    textAlign: TextAlign.center,
-    style: CustomFontStyle().common(
-        color: black2c,
-        fontSize: 20.23.sp,
-    ),
-),
-Text(
-    'Access your purchased QR’s categories',
-    style:  CustomFontStyle().common(
-        color: Colors.black.withOpacity(0.5600000023841858),
-        fontSize: 12.83.sp,
-        fontWeight: FontWeight.w500,
-    ),
-),
-       InkWell(onTap: () {
-              Navigator.push(context,MaterialPageRoute(builder:(context){
-                return const ScanPurchaseScreen();
-              }));
-            },
-              child: Container(
+              //////
+              Text(
+                'Your QR’s',
+                textAlign: TextAlign.center,
+                style: CustomFontStyle().common(
+                  color: black2c,
+                  fontSize: 20.23.sp,
+                ),
+              ),
+              Text(
+                'Access your purchased QR’s categories',
+                style: CustomFontStyle().common(
+                  color: Colors.black.withOpacity(0.5600000023841858),
+                  fontSize: 12.83.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ScanPurchaseScreen();
+                  }));
+                },
+                child: Container(
+                  height: 75.h,
+                  margin: EdgeInsets.only(top: 15, bottom: 15),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  decoration: ShapeDecoration(
+                    color: Color(0xFFDADDEB),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Vehicle',
+                        style: CustomFontStyle().common(
+                          color: black2c,
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Image.asset("assets/images/car-01.png")
+                    ],
+                  ),
+                ),
+              ),
+              Container(
                 height: 75.h,
-                margin: EdgeInsets.only(top: 15,bottom: 15),
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFDADDEB),
+                  color: Color(0xFFDAEBDB),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                 ),
@@ -344,52 +380,59 @@ Text(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Vehicle',
+                      'House',
                       style: CustomFontStyle().common(
                         color: black2c,
                         fontSize: 15.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Image.asset("assets/images/car-01.png")
+                    Image.asset(
+                      "assets/images/Group (2).png",
+                      height: 40,
+                    ),
                   ],
                 ),
               ),
-            ),
-             Container(
-              height: 75.h,
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              decoration: ShapeDecoration(
-                color: Color(0xFFDAEBDB),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'House',
-                    style: CustomFontStyle().common(
-                      color: black2c,
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+              InkWell(
+                onTap: () {
+                  // Navigator.push(context,MaterialPageRoute(builder:(context){
+                  //   return const Assetspage();
+                  // }));
+                },
+                child: Container(
+                  height: 75.h,
+                  margin: EdgeInsets.only(top: 15, bottom: 15),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  decoration: ShapeDecoration(
+                    color: Color(0xFFEBDCDA),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
                   ),
-                  Image.asset("assets/images/Group (2).png",height: 40,),
-                ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Pet',
+                        style: CustomFontStyle().common(
+                          color: black2c,
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Image.asset(
+                        "assets/images/OBJECTS.png",
+                        height: 50,
+                      )
+                    ],
+                  ),
+                ),
               ),
-            ),
-                    InkWell(onTap: () {
-              // Navigator.push(context,MaterialPageRoute(builder:(context){
-              //   return const Assetspage();
-              // }));
-            },
-              child: Container(
+              Container(
                 height: 75.h,
-                margin: EdgeInsets.only(top: 15,bottom: 15),
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 decoration: ShapeDecoration(
-                  color:  Color(0xFFEBDCDA),
+                  color: Color(0xFFE9EBDA),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                 ),
@@ -397,77 +440,54 @@ Text(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Pet',
+                      'Office',
                       style: CustomFontStyle().common(
                         color: black2c,
                         fontSize: 15.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Image.asset("assets/images/OBJECTS.png",height: 50,)
+                    Image.asset(
+                      "assets/images/Layer_1.png",
+                      height: 40,
+                    ),
                   ],
                 ),
               ),
-            ),
-             Container(
-              height: 75.h,
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              decoration: ShapeDecoration(
-               color: Color(0xFFE9EBDA),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Office',
-                    style: CustomFontStyle().common(
-                      color: black2c,
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: ScreenUtil().screenWidth,
+                    height: 49.h,
+                    margin: const EdgeInsets.all(8),
+                    decoration: ShapeDecoration(
+                      color: lightblue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(7.02.r),
+                      ),
                     ),
-                  ),
-                  Image.asset("assets/images/Layer_1.png",height: 40,),
-                ],
-              ),
-            ),
-             Padding(
-               padding: const EdgeInsets.only(top: 15),
-               child: InkWell(onTap: () {
-                 
-               },
-                 child: Container(
-                            width: ScreenUtil().screenWidth,
-                            height: 49.h,
-                            margin: const EdgeInsets.all(8),
-                            decoration: ShapeDecoration(
-                              color: lightblue,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(7.02.r),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.add,
-                                  color: blue6ec,
-                                ),
-                                Text(
-                                  'Create new category',
-                                  style: TextStyle(
-                                    color: blue6ec,
-                                    fontSize: 14.04.sp,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                )
-                              ],
-                            ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: blue6ec,
+                        ),
+                        Text(
+                          'Create new category',
+                          style: TextStyle(
+                            color: blue6ec,
+                            fontSize: 14.04.sp,
+                            fontWeight: FontWeight.w500,
                           ),
-               ), ),
-          
-          
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
