@@ -51,7 +51,21 @@ class _OrderhistoryScreenState extends State<OrderhistoryScreen> {
               height: 0,
             )),
       ),
-    
+    body: Column(mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+       Image.asset("assets/images/No Order 1 (1).png"),
+       Text(
+    'No order or transaction found',
+    textAlign: TextAlign.center,
+    style: CustomFontStyle().common(
+        color: black2c,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+    ),
+)
+      ],
+    ),
     );
   }
 }
