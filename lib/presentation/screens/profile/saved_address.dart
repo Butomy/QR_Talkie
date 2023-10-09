@@ -53,7 +53,7 @@ class _SavedAddressState extends State<SavedAddress> {
                     border: Border.all(width: 0.8, color: greybeb)),
                 child: Icon(
                   Icons.arrow_back_ios_new,
-                  color: blueca,
+                  color: black2c,
                 ),
               ),
             )),

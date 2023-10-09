@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:qr_talkie/presentation/screens/profile/order_history/order_history.dart';
 import 'package:qr_talkie/presentation/screens/profile/settings_page.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
@@ -43,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     border: Border.all(width: 0.8, color: white)),
                 child: Icon(
                   Icons.arrow_back_ios_new,
-                  color: blueca,
+                  color: black2c,
                 ),
               ),
             )), ),
@@ -109,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'Hannibalsmith@gmail.com',
                       style: CustomFontStyle().common(
-                        color: Colors.white,
+                        color: white,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                       ),
@@ -122,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
               width: double.infinity,
 
               decoration: const ShapeDecoration(
-                color: Colors.white,
+                color: white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12),
@@ -132,35 +133,41 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: Column(
                 children: [
-                  ListTile(
-                    title: Text(
-                      'Order History',
-                      style: TextStyle(
-                        color: black2c,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400,
+                  InkWell(onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return const OrderHistoryPage();
+                      }));
+                  },
+                    child: ListTile(
+                      title: Text(
+                        'Order History',
+                        style: TextStyle(
+                          color: black2c,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    subtitle: Text(
-                      'Track your order & See previous orders',
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.5),
-                        fontSize: 11.sp,
-                        fontWeight: FontWeight.w400,
+                      subtitle: Text(
+                        'Track your order & See previous orders',
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    leading: Container(
-                      width: 40,
-                      height: 40,
-                      padding: EdgeInsets.all(6),
-                      decoration: ShapeDecoration(
-                        color: lightblue,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        padding: EdgeInsets.all(6),
+                        decoration: ShapeDecoration(
+                          color: lightblue,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: Image.asset("assets/images/clock.png"),
                       ),
-                      child: Image.asset("assets/images/clock.png"),
+                      trailing: Icon(Icons.arrow_forward_ios),
                     ),
-                    trailing: Icon(Icons.arrow_forward_ios),
                   ),
                   Divider(),
                     InkWell(onTap: (){

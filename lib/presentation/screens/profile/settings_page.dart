@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/profile/chat_settings.dart';
+import 'package:qr_talkie/presentation/screens/profile/personal_data.dart';
 import 'package:qr_talkie/presentation/screens/profile/saved_address.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -35,7 +36,7 @@ class _SettingPageState extends State<SettingPage> {
                     border: Border.all(width: 0.8, color: greybeb)),
                 child: Icon(
                   Icons.arrow_back_ios_new,
-                  color: blueca,
+                  color: black2c,
                 ),
               ),
             )),
@@ -107,34 +108,40 @@ class _SettingPageState extends State<SettingPage> {
                 //   },
                 //   itemCount: items.length,
                 // ),
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      padding: EdgeInsets.all(5),
-                      decoration: ShapeDecoration(
-                        color:greyef,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                InkWell(onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder:(context){
+                      return const PersonalData();
+                     }));
+                },
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        padding: EdgeInsets.all(5),
+                        decoration: ShapeDecoration(
+                          color:greyef,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: Image.asset("assets/images/user (2) 1.png"),
                       ),
-                      child: Image.asset("assets/images/user (2) 1.png"),
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Personal Data',
-                        style: CustomFontStyle().common(
-                          color: black2c,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Personal Data',
+                          style: CustomFontStyle().common(
+                            color: black2c,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
+                      Icon(Icons.arrow_forward_ios),
+                    ],
+                  ),
                 ),
                 Divider(),
                 Row(
