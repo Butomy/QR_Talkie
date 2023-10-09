@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/profile/saved_address.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
@@ -112,7 +113,7 @@ class _SettingPageState extends State<SettingPage> {
                       height: 40,
                       padding: EdgeInsets.all(5),
                       decoration: ShapeDecoration(
-                        color: Color(0xFFF0EFEF),
+                        color:greyef,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                       ),
@@ -142,7 +143,7 @@ class _SettingPageState extends State<SettingPage> {
                       height: 40,
                       padding: EdgeInsets.all(5),
                       decoration: ShapeDecoration(
-                        color: Color(0xFFF0EFEF),
+                        color: greyef,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                       ),
@@ -174,7 +175,7 @@ class _SettingPageState extends State<SettingPage> {
                         height: 40.h,
                         padding: EdgeInsets.all(5),
                         decoration: ShapeDecoration(
-                          color: Color(0xFFF0EFEF),
+                          color: greyef,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
                         ),
@@ -202,7 +203,9 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 Divider(),
                 InkWell(onTap: (){
-
+                     Navigator.push(context,MaterialPageRoute(builder:(context){
+                      return const SavedAddress();
+                     }));
                 },
                   child: Row(
                     children: [
@@ -211,7 +214,7 @@ class _SettingPageState extends State<SettingPage> {
                         height: 40,
                         padding: EdgeInsets.all(5),
                         decoration: ShapeDecoration(
-                          color: Color(0xFFF0EFEF),
+                          color: greyef,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
                         ),
@@ -244,7 +247,7 @@ class _SettingPageState extends State<SettingPage> {
                       height: 40,
                       padding: EdgeInsets.all(5),
                       decoration: ShapeDecoration(
-                        color: Color(0xFFF0EFEF),
+                        color: greyef,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                       ),
@@ -276,7 +279,7 @@ class _SettingPageState extends State<SettingPage> {
                       height: 40,
                       padding: EdgeInsets.all(5),
                       decoration: ShapeDecoration(
-                        color: Color(0xFFF0EFEF),
+                        color: greyef,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                       ),
