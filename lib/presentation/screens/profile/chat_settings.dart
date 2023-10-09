@@ -19,47 +19,45 @@ bool number = false;
 class _ChatSettingsState extends State<ChatSettings> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
+    return Scaffold(backgroundColor: white,
+       appBar: AppBar(
+        surfaceTintColor: white,
+        toolbarHeight: 80.h,
         backgroundColor: white,
+        leading: Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 42.w,
+                height: 42.h,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 0.8, color: greybeb)),
+                child: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: blueca,
+                ),
+              ),
+            )),
         centerTitle: true,
         title: Text(
           'Chat Settings',
-          textAlign: TextAlign.center,
           style: CustomFontStyle().common(
-            color: const Color(0xFF2C2C2C),
+            color: black2c,
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
           ),
         ),
-        leadingWidth: 140,
-        leading: Row(
-          children: [
-            SizedBox(
-              width: 16.w,
-            ),
-            Container(
-              padding: const EdgeInsets.all(1.0),
-              decoration: const BoxDecoration(
-                color: Color(0Xffd6d6d6), // Border color
-                shape: BoxShape.circle,
-              ),
-              child: const CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 21,
-                child: Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: Color(0xFF2C2C2C),
-                ),
-              ),
-            ),
-          ],
-        ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(16.0.h), child: const Divider()),
+            preferredSize: Size(0, 0),
+            child: Divider(
+              height: 0,
+            )),
       ),
-      body: SafeArea(
+       body: SafeArea(
         child: Column(
           children: [
             Padding(
@@ -69,8 +67,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                 children: [
                   Text(
                     'View Enquirer details?',
-                    style: CustomFontStyle().common(
-                      color: const Color(0xFF2C2C2C),
+                    style: CustomFontStyle().common(color: black2c,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
                     ),
@@ -78,8 +75,8 @@ class _ChatSettingsState extends State<ChatSettings> {
                   FlutterSwitch(
                       width: 46.32.w,
                       height: 23.75.h,
-                      activeColor: const Color(0xFFFCD635),
-                      inactiveColor: const Color(0xFFFCD635),
+                      activeColor: yellow,
+                      inactiveColor: yellow,
                       toggleSize: 20.sp,
                       toggleColor: white,
                       value: visible,
@@ -96,7 +93,7 @@ class _ChatSettingsState extends State<ChatSettings> {
             Divider(
               thickness: 0.50.sp,
               height: 26.h,
-              color: const Color(0xFF2C2C2C),
+              color: black2c,
             ),
             if (visible)
               Column(
@@ -112,7 +109,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                         Text(
                           'Name',
                           style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
+                            color: black2c,
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
                           ),
@@ -120,8 +117,8 @@ class _ChatSettingsState extends State<ChatSettings> {
                         FlutterSwitch(
                             width: 46.32.w,
                             height: 23.75.h,
-                            activeColor: const Color(0xFFFCD635),
-                            inactiveColor: const Color(0xFFFCD635),
+                            activeColor: yellow,
+                            inactiveColor: yellow,
                             toggleSize: 20.sp,
                             toggleColor: white,
                             value: name,
@@ -138,7 +135,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                   Divider(
                     thickness: 0.50.sp,
                     height: 26.h,
-                    color: const Color(0xFF2C2C2C),
+                    color: black2c,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -151,7 +148,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                         Text(
                           'Email Id',
                           style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
+                            color: black2c,
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
                           ),
@@ -159,8 +156,8 @@ class _ChatSettingsState extends State<ChatSettings> {
                         FlutterSwitch(
                             width: 46.32.w,
                             height: 23.75.h,
-                            activeColor: const Color(0xFFFCD635),
-                            inactiveColor: const Color(0xFFFCD635),
+                            activeColor: yellow,
+                            inactiveColor: yellow,
                             toggleSize: 20.sp,
                             toggleColor: white,
                             value: email,
@@ -177,7 +174,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                   Divider(
                     thickness: 0.50.sp,
                     height: 26.h,
-                    color: const Color(0xFF2C2C2C),
+                    color: black2c,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -190,7 +187,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                         Text(
                           'Phone Number',
                           style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
+                            color: black2c,
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
                           ),
@@ -198,8 +195,8 @@ class _ChatSettingsState extends State<ChatSettings> {
                         FlutterSwitch(
                             width: 46.32.w,
                             height: 23.75.h,
-                            activeColor: const Color(0xFFFCD635),
-                            inactiveColor: const Color(0xFFFCD635),
+                            activeColor: yellow,
+                            inactiveColor: yellow,
                             toggleSize: 20.sp,
                             toggleColor: white,
                             value: number,
@@ -216,7 +213,7 @@ class _ChatSettingsState extends State<ChatSettings> {
                   Divider(
                     thickness: 0.50.sp,
                     height: 26.h,
-                    color: const Color(0xFF2C2C2C),
+                    color: black2c,
                   ),
                 ],
               ),

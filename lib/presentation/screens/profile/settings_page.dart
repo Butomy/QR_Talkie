@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/profile/chat_settings.dart';
 import 'package:qr_talkie/presentation/screens/profile/saved_address.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
@@ -167,7 +168,11 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 Divider(),
                 InkWell(
-                  onTap: (){},
+                  onTap: (){
+                     Navigator.push(context,MaterialPageRoute(builder:(context){
+                      return const ChatSettings();
+                     }));
+                  },
                   child: Row(
                     children: [
                       Container(

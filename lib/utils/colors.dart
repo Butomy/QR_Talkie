@@ -28,4 +28,5 @@ const greyA5=Color(0xFFA5A5A5);
 const black26=Color(0xFF262626);
 const blue86=const Color(0x190086EC);
 const greyeef=Color(0xFFF0EFEF);
+const yellow=Color(0xFFFCD635);
 //Color(0xFFF0EFEF)

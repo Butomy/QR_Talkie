@@ -119,7 +119,7 @@ class _NewaddressScreenState extends State<NewaddressScreen> {
               hintText: "City",
             ),
             SizedBox(
-              height: ScreenUtil().screenHeight / 18,
+              height: ScreenUtil().screenHeight / 20,
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
@@ -131,9 +131,7 @@ class _NewaddressScreenState extends State<NewaddressScreen> {
                         });
                       },
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                        ),
+                        height: 32,width: 85.w,
                         decoration: BoxDecoration(
                             color:
                                 colorselect == index ? primaryColor : lightblue,
