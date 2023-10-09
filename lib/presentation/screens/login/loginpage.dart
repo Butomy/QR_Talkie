@@ -35,9 +35,6 @@ class _LoginPageState extends State<LoginPage> {
             width: ScreenUtil().screenWidth,
             decoration: const BoxDecoration(
               color: primaryColor,
-              // image: DecorationImage(
-              //     image: AssetImage("assets/images/Frame 438.png"),
-              //     fit: BoxFit.cover)
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

@@ -42,14 +42,14 @@ class _OrderdetailsState extends State<Orderdetails> {
             )),
         centerTitle: true,
         title: Text(
-          'Cart',
+          'Order details',
           style: CustomFontStyle().common(
             color: black2c,
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
           ),
         ),
-        bottom: PreferredSize(
+        bottom: const PreferredSize(
             preferredSize: Size(0, 0),
             child: Divider(
               height: 0,
