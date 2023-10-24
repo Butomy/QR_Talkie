@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/home_main_page/home_main.dart';
 import 'package:qr_talkie/presentation/screens/login/widgets/social_button.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
@@ -9,6 +10,7 @@ import 'package:qr_talkie/utils/custom_font_style.dart';
 import 'package:qr_talkie/utils/validation_util.dart';
 import '../../widgets/appbar_custom.dart';
 import '../../widgets/custom_textfield.dart';
+import '../bottom_navigation/bottom_navigation.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -144,11 +146,11 @@ class _LoginPageState extends State<LoginPage> {
                             // if (_formKey.currentState!.validate()) {
                             //
                             // }
-                            // Navigator.push(context, MaterialPageRoute(
-                            //   builder: (context) {
-                            //     return const SignUp();
-                            //   },
-                            // ));
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return const Bottomnavigationbarcustom();
+                              },
+                            ));
                           },
                         ),
                         SizedBox(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/profile/widgets/oder_details.dart';
 import 'package:qr_talkie/utils/colors.dart';
-
 import '../../../../utils/custom_font_style.dart';
 
 class OderHistory extends StatefulWidget {
@@ -36,7 +36,9 @@ List<String> aed = [
   'AED 250.00',
   'AED 180.00',
 ];
-
+List pages=[
+  OderDetails(),OderDetails(),OderDetails()
+];
 class _OderHistoryState extends State<OderHistory> {
   @override
   Widget build(BuildContext context) {
@@ -66,13 +68,13 @@ class _OderHistoryState extends State<OderHistory> {
                 color: Color(0Xffd6d6d6), // Border color
                 shape: BoxShape.circle,
               ),
-              child: const CircleAvatar(
+              child:  CircleAvatar(
                 backgroundColor: white,
                 radius: 21,
-                child: Icon(
+                child:IconButton(onPressed: (){Navigator.pop(context);}, icon:  const Icon(
                   Icons.arrow_back_ios_new_outlined,
                   color: Color(0xFF2C2C2C),
-                ),
+                ),)
               ),
             ),
           ],
@@ -80,29 +82,7 @@ class _OderHistoryState extends State<OderHistory> {
         bottom: PreferredSize(
             preferredSize: Size.fromHeight(16.0.h), child: const Divider()),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 0,
-        color: white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image(
-                image: const AssetImage(
-                  "assets/images/home.png",
-                ),
-                width: 23.w,
-                height: 24.211.h),
-            Image(
-                image: const AssetImage("assets/images/Vector.png"),
-                width: 26.w,
-                height: 26.h),
-            Image(
-                image: const AssetImage("assets/images/QR.png"),
-                width: 27.w,
-                height: 27.h),
-          ],
-        ),
-      ),
+
       backgroundColor: white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -110,12 +90,30 @@ class _OderHistoryState extends State<OderHistory> {
             padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
             child: Column(
               children: [
+                data.isEmpty?
+               Column(
+                 children: [
+                   SizedBox(height: MediaQuery.of(context).size.height/4,),
+                   Image(image: const AssetImage("assets/images/Group 12.png",),width: double.infinity,
+                         height: MediaQuery.of(context).size.height/4,),Text(
+                     'No order or transaction found',
+                     textAlign: TextAlign.center,
+                     style:CustomFontStyle().common(
+                       color: const Color(0xFF2C2C2C),
+                       fontSize: 16.sp,
+                       fontWeight: FontWeight.w500,
+                     ),
+                   ),
+                 ],
+               ) :
                 ListView.builder(
+
                     itemCount: data.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
-                      return Container(
+                      return
+                        Container(
                         margin: EdgeInsets.only(top: 12.h),
                         width: double.infinity.w,
                         height: MediaQuery.of(context).size.height / 6.5,
@@ -174,20 +172,26 @@ class _OderHistoryState extends State<OderHistory> {
                                         textAlign: TextAlign.center,
                                         style: CustomFontStyle().common(
                                           color: const Color(0xFF2C2C2C),
-                                          fontSize: 13.28,
+                                          fontSize: 13.28.sp,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       )
                                     ],
                                   ),
                                 ),
-                                const Column(
+                                Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Icon(
+                                    IconButton(onPressed: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                                        return pages[index];
+                                      }));
+
+                                    }, icon:    const Icon(
                                       Icons.chevron_right_outlined,
                                       color: Color(0xFF2C2C2C),
-                                    )
+                                    ))
+
                                   ],
                                 )
                               ],

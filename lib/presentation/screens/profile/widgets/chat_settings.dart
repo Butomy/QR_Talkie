@@ -45,13 +45,13 @@ class _ChatSettingsState extends State<ChatSettings> {
                 color: Color(0Xffd6d6d6), // Border color
                 shape: BoxShape.circle,
               ),
-              child: const CircleAvatar(
+              child:  CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 21,
-                child: Icon(
+                child:IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(
                   Icons.arrow_back_ios_new_outlined,
                   color: Color(0xFF2C2C2C),
-                ),
+                ),)
               ),
             ),
           ],

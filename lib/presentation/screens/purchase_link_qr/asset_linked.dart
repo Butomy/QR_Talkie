@@ -56,11 +56,10 @@ class _AssetspagelinkedState extends State<Assetspagelinked> {
             textColor: blue6ec,
             bgColor: white,
             onPress: () {
-             
-                Navigator.push(context,MaterialPageRoute(builder:(context){
-                   return const HomemainPage();
-              }));
-
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return const HomemainPage();
+              // }
+              // ));
             },
           ),
         ),

@@ -87,10 +87,10 @@ class _ConfirmpageState extends State<Confirmpage> {
                             pinLength: 4,
                             decoration: BoxLooseDecoration(
                                 strokeColorBuilder:
-                                    const FixedColorBuilder(greyef),
+                                    const FixedColorBuilder(ash_eef),
                                 radius: Radius.circular(6.r),
                                 bgColorBuilder:
-                                    const FixedColorBuilder(greyef))),
+                                    const FixedColorBuilder(ash_eef))),
                       ),
                       // const Spacer(),
                       Padding(

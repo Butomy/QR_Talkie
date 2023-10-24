@@ -20,7 +20,7 @@ class _OderDetailsState extends State<OderDetails> {
         backgroundColor: white,
         centerTitle: true,
         title: Text(
-          'Order History',
+          'Order details',
           textAlign: TextAlign.center,
           style: CustomFontStyle().common(
             color: const Color(0xFF2C2C2C),
@@ -40,13 +40,13 @@ class _OderDetailsState extends State<OderDetails> {
                 color: Color(0Xffd6d6d6), // Border color
                 shape: BoxShape.circle,
               ),
-              child: const CircleAvatar(
+              child:  CircleAvatar(
                 backgroundColor: white,
                 radius: 21,
-                child: Icon(
+                child: IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(
                   Icons.arrow_back_ios_new_outlined,
                   color: Color(0xFF2C2C2C),
-                ),
+                ),)
               ),
             ),
           ],

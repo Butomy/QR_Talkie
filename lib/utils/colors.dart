@@ -9,7 +9,6 @@ const black10 = Color(0xFF101010);
 const black97=Color(0xFF979797);
 const ash_eef=Color(0xFFF0EFEF);
 
-const greyef=Color(0xFFF0EFEF);
 const blue6ec=Color(0xFF0086EC);
 const bluuedec=Color(0xff006DEC);
 const bluuefc= Color(0x2834A3FC);
@@ -23,3 +22,4 @@ const whitefo= Color(0xFFEFEFF0);
 const blueca= Color(0xFF1D2DCA);
 const greyF5= Color(0xFFF5F5F5);
 const greyc0=Color(0xFFC0C0C0);
+const green=Color(0xff13EC00);

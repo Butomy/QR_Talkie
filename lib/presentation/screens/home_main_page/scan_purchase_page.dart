@@ -65,40 +65,48 @@ class _ScanPurchaseScreenState extends State<ScanPurchaseScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: Container(
-                  // width: ScreenUtil().screenWidth / 1.8,
-                  // height: ScreenUtil().screenHeight / 4,
-                  margin: EdgeInsets.all(8.0),
-                  decoration: ShapeDecoration(
-                    color: white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(26.17),
+              Stack(fit: StackFit.loose,
+              clipBehavior: Clip.none,
+                children: [
+                  Center(
+                    child: Container(
+                      // width: ScreenUtil().screenWidth / 1.8,
+                      // height: ScreenUtil().screenHeight / 4,
+                      margin: EdgeInsets.all(8.0),
+                      decoration: ShapeDecoration(
+                        color: white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(26.17),
+                        ),
+                        shadows: [
+                          BoxShadow(
+                            color: Color(0x30000000),
+                            blurRadius: 4,
+                            offset: Offset(3, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                      'Active',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: black,
+                          fontSize: 20.23.sp,
+                          fontWeight: FontWeight.w600,
+                      ),
+                  ),
+                          Image.asset("assets/images/Group 322.png",height: 250,),
+                        ],
+                      ),
                     ),
-                    shadows: [
-                      BoxShadow(
-                        color: Color(0x30000000),
-                        blurRadius: 4,
-                        offset: Offset(3, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-    'Active',
-    textAlign: TextAlign.center,
-    style: TextStyle(
-        color: black,
-        fontSize: 20.23.sp,
-        fontWeight: FontWeight.w600,
-    ),
-),
-                      Image.asset("assets/images/Group 322.png",height: 250,),
-                    ],
-                  ),
-                ),
+                  Positioned(
+                    child: Center(child: CircleAvatar(backgroundColor: white,radius: 15,
+                      child: Badge(smallSize: 15,backgroundColor: green,))))
+                ],
               ),
               Center(
                 child: SmoothPageIndicator(

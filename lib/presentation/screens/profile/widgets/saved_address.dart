@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/profile/widgets/add_address.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
 import '../../../../utils/colors.dart';
@@ -62,13 +63,13 @@ class _SavedAddressState extends State<SavedAddress> {
                 color: Color(0Xffd6d6d6), // Border color
                 shape: BoxShape.circle,
               ),
-              child: const CircleAvatar(
+              child: CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 21,
-                child: Icon(
+                child: IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(
                   Icons.arrow_back_ios_new_outlined,
                   color: Color(0xFF2C2C2C),
-                ),
+                ),)
               ),
             ),
           ],
@@ -206,17 +207,22 @@ class _SavedAddressState extends State<SavedAddress> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                Container(margin: const EdgeInsets.only(left: 5),
-                  width: 24.w,
-                  height: 24.h,
-
-                  decoration: ShapeDecoration(
-                    color: const Color(0x190086EC),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(69.33),
+                InkWell(onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return AddAddress();
+                  }));},
+                  child: Container(margin: const EdgeInsets.only(left: 5),
+                    width: 24.w,
+                    height: 24.h,
+                    decoration: ShapeDecoration(
+                      color: const Color(0x190086EC),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(69.33),
+                      ),
                     ),
-                  ),child:
-                    const Icon(Icons.add,color: Color(0xFF006CEC),)
+                      child:const Icon(Icons.add,color: Color(0xFF006CEC),)
+
+                  ),
                 )
 
                 ],),

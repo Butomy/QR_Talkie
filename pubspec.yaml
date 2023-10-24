@@ -40,6 +40,8 @@ dependencies:
   device_preview: ^1.1.0
   smooth_page_indicator: ^1.1.0
   flutter_switch: ^0.3.2
+  image_picker: ^1.0.4
+  image_cropper:
 
 
 dev_dependencies:
