@@ -59,6 +59,34 @@ class _PersonalDataState extends State<PersonalData> {
         bottom: PreferredSize(
             preferredSize: Size.fromHeight(16.0.h), child: const Divider()),
       ),
+      backgroundColor: Colors.white,
+
+      bottomSheet:BottomSheet(backgroundColor: white,elevation: 0,
+
+        builder:  (BuildContext context) {
+return
+        Container(
+          padding: const EdgeInsets.all(15),
+          margin: EdgeInsets.only(bottom: 20.h,left: 16.w,right: 16.w),
+          width: double.infinity,
+          height: 56.h,
+          decoration: ShapeDecoration(
+            color: const Color(0xFF006CEC),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8)),
+          ),
+          child: Text(
+            'Update Profile',
+            textAlign: TextAlign.center,
+            style: CustomFontStyle().common(
+              color: Colors.white,
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        );
+      }, onClosing: () {  },)  ,
+
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 28.h, horizontal: 16.w),
         child: SafeArea(
@@ -245,26 +273,8 @@ class _PersonalDataState extends State<PersonalData> {
                   ),
                 ),
 
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: EdgeInsets.only(top: 50.h),
-                  width: double.infinity,
-                  height: 56.h,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF006CEC),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: Text(
-                    'Update Profile',
-                    textAlign: TextAlign.center,
-                    style: CustomFontStyle().common(
-                      color: Colors.white,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+
+
               ],
             ),
           ),

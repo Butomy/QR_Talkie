@@ -1,12 +1,15 @@
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/login/loginpage.dart';
+import 'package:qr_talkie/presentation/screens/sign_up/confirm_otp.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
+import '../../../utils/validation_util.dart';
+import '../../widgets/appbar_custom.dart';
 import '../../widgets/custom_textfield.dart';
+import '../login/widgets/social_button.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -16,222 +19,245 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
- 
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController numberCtrl = TextEditingController();
+  final TextEditingController passCtrl = TextEditingController();
+  final TextEditingController confirmPassCtrl = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: white,
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            children: [
-              Container(
-                height: ScreenUtil().screenHeight * 0.3,
-                padding: EdgeInsets.only(
-                    top: ScreenUtil().statusBarHeight,
+    return Form(
+      key: _formKey,
+      child: Scaffold(
+        backgroundColor: white,
+        body: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
+          child: Container(
+            height: ScreenUtil().screenHeight,
+            width: ScreenUtil().screenWidth,
+            color: primaryColor,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
                     left: 16,
-                    right: 16,
-                    bottom: 16),
-                width: double.infinity,
-                color: bluuedec,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 20.r,
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 5),
-                        child: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: primaryColor,
-                          size: 20.sp,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'New Here?',
-                      style: CustomFontStyle().common(
-                        color: Colors.white,
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Text('Signup today to start your\njourney!',
-                        style: CustomFontStyle().common(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: white))
-                  ],
-                ),
-              ),
-
-              Container(color: bluuedec,
-                child: Container( decoration: const BoxDecoration(
-                  color: white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    topRight: Radius.circular(16),
                   ),
-                ),
-                padding: EdgeInsets.only(left: 15,right: 15,top: 30,),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomTextField(
-                       hintText: "Phone number",
-                       hintstyle: TextStyle(
-                         fontSize: 14.sp,
-                         fontWeight: FontWeight.w400,
-                         color: grey,
-                       ),
-                     ),
-                       CustomTextField(
-                       hintText: "Create Password",
-                       hintstyle: TextStyle(
-                         fontSize: 14.sp,
-                         fontWeight: FontWeight.w400,
-                         color: grey,
-                       ),
-                     ),
-                     CustomTextField(
-                       hintText: "Confirm Password",
-                       hintstyle: TextStyle(
-                           fontSize: 14.sp,
-                           fontWeight: FontWeight.w400,
-                           color: grey),
-                       
-                     ),
-                               Padding(
-                         padding: const EdgeInsets.only(top: 30,bottom: 30),
-                         child: CustomButton(
-                           text: "Sign Up",
-                           textColor: white,
-                           bgColor: primaryColor,
-                           onPress: () {
-                           //   Navigator.push(context, MaterialPageRoute(builder:(context) {
-                            //    return const Loginpage();
-                            //  },));
-                           },
-                         ),
-                       ),
-                    Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       children: [
-                         Opacity(
-                           opacity: 0.50,
-                           child: Container(
-                             width: ScreenUtil().screenWidth/2.5,
-                             decoration: const ShapeDecoration(
-                               shape: RoundedRectangleBorder(
-                                 side: BorderSide(
-                                   width: 1,
-                                   strokeAlign: BorderSide.strokeAlignCenter,
-                                   color: black2c,
-                                 ),
-                               ),
-                             ),
-                           ),
-                         ),
-                          Text(
-                           'OR',
-                           style: CustomFontStyle().common(
-                             color:black2c,
-                             fontSize: 16.sp,
-                             fontWeight: FontWeight.w400,
-                           ),
-                         ),
-                         Opacity(
-                           opacity: 0.50,
-                           child: Container(
-                             width: ScreenUtil().screenWidth/2.5,
-                             decoration: const ShapeDecoration(
-                               shape: RoundedRectangleBorder(
-                                 side: BorderSide(
-                                   width: 1,
-                                   strokeAlign: BorderSide.strokeAlignCenter,
-                                   color: black2c,
-                                 ),
-                               ),
-                             ),
-                           ),
-                         ),
-                       ],
-                     ),
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: [
-                         Container(
-                           margin: const EdgeInsets.only(top: 30),
-                           padding: EdgeInsets.all(15),
-                           width:  ScreenUtil().screenWidth/2.3,
-                           height: 54.h,
-                           decoration: ShapeDecoration(
-                             color: const Color(0xFFF0EFEF),
-                             shape: RoundedRectangleBorder(
-                               borderRadius: BorderRadius.circular(10),
-                             ),
-                           ),
-                          child: Image.asset("assets/images/Google.png",),
-                         ),
-                         Container(
-                           margin: const EdgeInsets.only(top: 33),
-                           width: MediaQuery.of(context).size.width / 2.3,
-                           height: 54.h,
-                           decoration: ShapeDecoration(
-                             color:ash_eef ,
-                             shape: RoundedRectangleBorder(
-                               borderRadius: BorderRadius.circular(10),
-                             ),
-                           ),
-                            child: Image.asset('assets/images/icons8-apple-30.png'),
-                         )
-                       ],
-                     ),
-                          
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      CustomAppBar(
+                        leadingBg: white,
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).padding.top,
+                          bottom: 10.h,
+                        ),
+                      ),
+                      Text(
+                        'New Here?',
+                        style: CustomFontStyle().common(
+                          color: Colors.white,
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Text('Signup today to start you\njourney!',
+                          style: CustomFontStyle().common(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: white)),
+                      SizedBox(
+                        height: 30.h,
+                      )
                     ],
                   ),
                 ),
-              ),
-              const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text.rich(
-                       TextSpan(
-                         children: [
-                           TextSpan(
-                             text: 'Already have an account ? ',
-                             style: CustomFontStyle().common(
-                               color: black2c,
-                               fontSize: 14.sp,
-                               fontWeight: FontWeight.w400,
-                             ),
-                           ),
-                           TextSpan(  recognizer: TapGestureRecognizer()
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 25.h),
+                    decoration: const BoxDecoration(
+                      color: white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16),
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomTextField(
+                          validator: ValidationUtil(context).phoneValidation,
+                          hintText: "Phone number",
+                          controller: numberCtrl,
+                          keyboardType: TextInputType.number,
+                          hintstyle: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                            color: grey,
+                          ),
+                        ),
+                        // const SizedBox(
+                        //   height: 5,
+                        // ),
+                        CustomTextField(
+                          validator: ValidationUtil(context).passwordValidation,
+                          hintText: "Create Password",
+                          controller: passCtrl,
+                          hintstyle: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                            color: grey,
+                          ),
+                        ),
+                        // const SizedBox(
+                        //   height: 5,
+                        // ),
+                        CustomTextField(
+                          controller: confirmPassCtrl,
+                          validator: (value) => ValidationUtil(context)
+                              .confirmPasswordValidation(value, passCtrl.text),
+                          hintText: "Confirm Password",
+                          hintstyle: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              color: grey),
+                          // isPasswordType: true,
+                          maxLine: 1,
+                          onTap: () {},
+                        ),
+                        SizedBox(
+                          height: 18.h,
+                        ),
+                        CustomButton(
+                          text: "Sign up",
+                          textColor: white,
+                          bgColor: primaryColor,
+                          onPress: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Confirmpage();
+                            }));
+                            // if (_formKey.currentState!.validate()) {}
+                          },
+                        ),
+                        SizedBox(
+                          height: 18.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Opacity(
+                              opacity: 0.50,
+                              child: Container(
+                                width: ScreenUtil().screenWidth / 2.5,
+                                decoration: const ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      width: 1,
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      color: black2c,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'OR',
+                              style: CustomFontStyle().common(
+                                color: black2c,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Opacity(
+                              opacity: 0.50,
+                              child: Container(
+                                width: ScreenUtil().screenWidth / 2.5,
+                                decoration: const ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      width: 1,
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      color: black2c,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 18.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: SocialButton(
+                                socialImage: 'assets/images/Google.png',
+                                onTap: () {},
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Expanded(
+                              child: SocialButton(
+                                socialImage:
+                                    'assets/images/icons8-apple-30.png',
+                                onTap: () {},
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const Spacer(),
+                        // Expanded(child: SizedBox()),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Don\'t have an account ? ',
+                                  style: CustomFontStyle().common(
+                                    color: black2c,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(recognizer: TapGestureRecognizer()
                                 ..onTap = () {
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) {
                                       return const LoginPage();
                                     },
-                                  ));
-                                },
-                             text: 'Sign In',
-                             style:CustomFontStyle().common(
-                               color: blue6ec,
-                               fontSize: 14.sp,
-                               fontWeight: FontWeight.w500,
-                             ),
-                           ),
-                         ],
-                       ),
-                     ),
-                )
-               ],
+                                  ));},
+                                  text: 'Sign In',
+                                  style: CustomFontStyle().common(
+                                    color: blue6ec,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
