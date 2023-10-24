@@ -13,9 +13,9 @@ class CategoriesListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const Assetspage();
-        }));
+        // Navigator.push(context, MaterialPageRoute(builder: (context) {
+        //   return const Assetspage();
+        // }));
       },
       child: Container(
         height: 75.h,
