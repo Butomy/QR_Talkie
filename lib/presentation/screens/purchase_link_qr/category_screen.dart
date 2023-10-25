@@ -9,6 +9,7 @@ import 'package:qr_talkie/utils/custom_font_style.dart';
 
 import '../../../utils/bottomsheet_util.dart';
 import '../../widgets/appbar_custom.dart';
+import '../../widgets/custom_appbar.dart';
 import '../../widgets/categories_list_tile.dart';
 import '../home_main_page/create_categories.dart';
 
@@ -24,55 +25,20 @@ class _CategorypageState extends State<Categorypage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+      appBar: PreferredSize(
+        preferredSize:
+            Size(AppBar().preferredSize.width, AppBar().preferredSize.height),
+        child: AppBarCustom(
+          centerTitle: false,
+          title: "Categories",
+        ),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            child: CustomAppBar(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              leading: Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: grey),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(50),
-                          ),
-                          color: Colors.white),
-                      child: const Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
-                            color: primaryColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Categories',
-                    style: CustomFontStyle().common(
-                        color: Colors.black,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
-            ),
+          SizedBox(
+            height: 10.h,
           ),
-          const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
@@ -164,8 +130,11 @@ class _CategorypageState extends State<Categorypage> {
               text: 'Add New Category',
               bgColor: lightblue,
               onPress: () {
-                bottomSheet(
-                    context: context, content: const CreateCategories());
+                // bottomSheet(
+                //     context: context, content: const CreateCategories());
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const Assetspage();
+                }));
               },
               textColor: blue6ec,
             ),

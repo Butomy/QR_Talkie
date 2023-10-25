@@ -7,7 +7,7 @@ import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 import '../../../utils/validation_util.dart';
-import '../../widgets/appbar_custom.dart';
+import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_textfield.dart';
 import '../login/widgets/social_button.dart';
 
@@ -234,13 +234,15 @@ class _SignUpState extends State<SignUp> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                TextSpan(recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return const LoginPage();
+                                TextSpan(
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(context, MaterialPageRoute(
+                                        builder: (context) {
+                                          return const LoginPage();
+                                        },
+                                      ));
                                     },
-                                  ));},
                                   text: 'Sign In',
                                   style: CustomFontStyle().common(
                                     color: blue6ec,

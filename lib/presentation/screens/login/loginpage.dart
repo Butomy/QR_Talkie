@@ -8,7 +8,7 @@ import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 import 'package:qr_talkie/utils/validation_util.dart';
-import '../../widgets/appbar_custom.dart';
+import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_textfield.dart';
 import '../bottom_navigation/bottom_navigation.dart';
 

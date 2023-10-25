@@ -12,6 +12,7 @@ import 'package:qr_talkie/utils/custom_font_style.dart';
 
 import '../../../utils/bottomsheet_util.dart';
 import '../../widgets/appbar_custom.dart';
+import '../../widgets/custom_appbar.dart';
 
 class Assetspage extends StatefulWidget {
   const Assetspage({super.key});
@@ -28,53 +29,18 @@ class _AssetspageState extends State<Assetspage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Padding(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-          child: CustomAppBar(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            leading: Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: grey),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(50),
-                        ),
-                        color: Colors.white),
-                    child: const Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20,
-                          color: primaryColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  'Assets',
-                  style: CustomFontStyle().common(
-                      color: Colors.black,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500),
-                )
-              ],
-            ),
-          ),
+      appBar: PreferredSize(
+        preferredSize:
+            Size(AppBar().preferredSize.width, AppBar().preferredSize.height),
+        child: AppBarCustom(
+          centerTitle: false,
+          title: "Assets",
         ),
-        const Divider(),
+      ),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(
+          height: 10.h,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(

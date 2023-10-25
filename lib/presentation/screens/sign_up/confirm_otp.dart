@@ -7,7 +7,7 @@ import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 
-import '../../widgets/appbar_custom.dart';
+import '../../widgets/custom_appbar.dart';
 
 class Confirmpage extends StatefulWidget {
   const Confirmpage({super.key});
