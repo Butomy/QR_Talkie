@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/profile/widgets/chat_settings.dart';
+import 'package:qr_talkie/presentation/screens/profile/widgets/commonWidgets/customRow.dart';
 import 'package:qr_talkie/presentation/screens/profile/widgets/personal_data.dart';
 import 'package:qr_talkie/presentation/screens/profile/widgets/saved_address.dart';
 import 'package:qr_talkie/utils/colors.dart';
@@ -59,278 +60,60 @@ class _SettingPageState extends State<SettingPage> {
             preferredSize: Size.fromHeight(16.0), child: Divider()),
       ),
       backgroundColor: white,
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SafeArea(
-          child: SingleChildScrollView(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              InkWell(onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return  PersonalData();
-                }));
-              },
-                child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                      padding: EdgeInsets.all(8),
-                      width: 40.w,
-                      height: 40.h,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFFF0EFEF),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                      child:
-                      const Image(image:  AssetImage(
-                        "assets/images/user (2) 1.png",
-                      ),)
-                    // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
-                  ),
-                SizedBox(
-                    width: 16.w,
-                  ),
-                  Expanded(
-                    child: Text(
-                      "Personal Data",
-                      style: CustomFontStyle().common(
-                        color: const Color(0xFF2C2C2C),
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  const Icon(
-                    Icons.chevron_right_outlined,
-                    color: Color(0xFF8C8C8C),
-                  )
-                ],
-            ),
-              ), Divider(
+                CustomRow(heading:   "Personal Data", text: "", validate: false, leadingimages:   const AssetImage(
+                  "assets/images/user (2) 1.png",
+                ),onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return  const PersonalData();
+                }));},),
+                Divider(indent: 16,endIndent: 16,
                   color: Colors.black.withOpacity(0.07999999821186066),
                   height: 25.h,
                 ),
-                InkWell(onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context){
-                  //   return  PersonalData();
-                  // }));
-                },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                          padding: EdgeInsets.all(8),
-                          width: 40.w,
-                          height: 40.h,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFF0EFEF),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                          ),
-                          child: const Image(image:  AssetImage(
-                            "assets/images/Policy.png",
-                          ),)
-                        // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
-                      ),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Change Password",
-                          style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.chevron_right_outlined,
-                        color: Color(0xFF8C8C8C),
-                      )
-                    ],
-                  ),
-                ),
-                Divider(
+                CustomRow(heading:  "Change Password",text: "", validate: false, leadingimages:  const AssetImage(
+                  "assets/images/Policy.png",
+                ),onPressed: (){},),
+
+                Divider(indent: 16,endIndent: 16,
                   color: Colors.black.withOpacity(0.07999999821186066),
                   height: 25.h,
                 ),
-                InkWell(onTap: (){
+                CustomRow(heading:     "Chat Settings",text: "", validate: false, leadingimages: const AssetImage(
+                  "assets/images/Frame.png",
+                ),onPressed: (){    Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return  const ChatSettings();
+                }));},),
+                Divider(indent: 16,endIndent: 16,
+                  color: Colors.black.withOpacity(0.07999999821186066),
+                  height: 25.h,
+                ),
+                CustomRow(heading:    "Saved Address", text: "", validate: false, leadingimages:  const AssetImage(
+                  "assets/images/Address.png",
+                ),onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return  ChatSettings();
+                    return  const SavedAddress();
                   }));
-                },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                          padding: EdgeInsets.all(8),
-                          width: 40.w,
-                          height: 40.h,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFF0EFEF),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                          ),
-                          child: const Image(image:   AssetImage(
-                            "assets/images/Frame.png",
-                          ),)
-                        // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
-                      ),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Chat Settings",
-                          style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.chevron_right_outlined,
-                        color: Color(0xFF8C8C8C),
-                      )
-                    ],
-                  ),
-                ),
-                Divider(
+                },),
+                Divider(indent: 16,endIndent: 16,
                   color: Colors.black.withOpacity(0.07999999821186066),
                   height: 25.h,
                 ),
-                InkWell(onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return  SavedAddress();
-                  }));
-                },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                          padding: EdgeInsets.all(8),
-                          width: 40.w,
-                          height: 40.h,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFF0EFEF),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                          ),
-                          child: const Image(image: AssetImage(
-                            "assets/images/Address.png",
-                          ),)
-                        // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
-                      ),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Saved Address",
-                          style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.chevron_right_outlined,
-                        color: Color(0xFF8C8C8C),
-                      )
-                    ],
-                  ),
-                ),
-                Divider(
+                CustomRow(heading:      "Report", text: "", validate: false, leadingimages:  const AssetImage(
+                  "assets/images/Frame (3).png",
+                ),onPressed: (){},),
+
+                Divider(indent: 16,endIndent: 16,
                   color: Colors.black.withOpacity(0.07999999821186066),
                   height: 25.h,
                 ),
-                InkWell(onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context){
-                  //   return  PersonalData();
-                  // }));
-                },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                          padding: EdgeInsets.all(8),
-                          width: 40.w,
-                          height: 40.h,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFF0EFEF),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                          ),
-                          child: const Image(image:  AssetImage(
-                            "assets/images/Frame (3).png",
-                          ),)
-                        // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
-                      ),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Report",
-                          style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.chevron_right_outlined,
-                        color: Color(0xFF8C8C8C),
-                      )
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black.withOpacity(0.07999999821186066),
-                  height: 25.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                        padding: EdgeInsets.all(8),
-                        width: 40.w,
-                        height: 40.h,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFF0EFEF),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                        ),
-                        child: const Image(image:  AssetImage(
-                          "assets/images/Frame (4).png",
-                        ),)
-                      // child: Icon(icons[index],color: const Color(0xFF2C2C2C),),
-                    ),
-                    SizedBox(
-                      width: 16.w,
-                    ),
-                    Expanded(
-                      child: Text(
-                          "About",
-                        style: CustomFontStyle().common(
-                          color: const Color(0xFF2C2C2C),
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                    const Icon(
-                      Icons.chevron_right_outlined,
-                      color: Color(0xFF8C8C8C),
-                    )
-                  ],
-                ),
+                CustomRow(heading:   "About", text: "", validate: false, leadingimages:  const AssetImage(
+                  "assets/images/Frame (4).png",
+                ),onPressed: (){},),
                 Container(
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height / 4),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import '../../../../utils/colors.dart';
 import '../../../../utils/custom_font_style.dart';
 class AddAddress extends StatefulWidget {
@@ -342,13 +343,19 @@ SizedBox(height: 19.92.h,),
                   ],
                 ),
 
+
             ],),
           ),
         ),
       ),
 
-bottomNavigationBar: BottomAppBar(
-
+bottomNavigationBar: BottomAppBar(color: white,
+elevation: 0,
+child: CustomButton(onPress: (){},
+text:   'Save and Update',bgColor: primaryColor,textColor: white,textStyle:CustomFontStyle().common(
+  fontSize: 16.sp,color: white,
+  fontWeight: FontWeight.w500,
+),),
 ),
     );
   }
