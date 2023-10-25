@@ -50,16 +50,18 @@ class AppBarCustom extends StatelessWidget {
               ),
             ),
           ),
-      title: Text(
-        title ?? '',
-        style: titleStyle ??
-            CustomFontStyle().common(
-              color: const Color(0xFF2B2B2B),
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w500,
-              height: 0,
-            ),
-      ),
+      title: title != null
+          ? Text(
+              title ?? '',
+              style: titleStyle ??
+                  CustomFontStyle().common(
+                    color: const Color(0xFF2B2B2B),
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w500,
+                    height: 0,
+                  ),
+            )
+          : const SizedBox(),
       centerTitle: centerTitle,
       actions: action,
     );

@@ -130,11 +130,8 @@ class _CategorypageState extends State<Categorypage> {
               text: 'Add New Category',
               bgColor: lightblue,
               onPress: () {
-                // bottomSheet(
-                //     context: context, content: const CreateCategories());
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const Assetspage();
-                }));
+                bottomSheet(
+                    context: context, content: const CreateCategories());
               },
               textColor: blue6ec,
             ),
