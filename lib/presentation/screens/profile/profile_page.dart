@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/profile/widgets/oder_history.dart';
-import 'package:qr_talkie/presentation/screens/profile/widgets/settings_page.dart';
+import 'package:qr_talkie/presentation/screens/profile/order_history/oder_history.dart';
+import 'package:qr_talkie/presentation/screens/profile/settings/settings_page.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
 import '../../../utils/colors.dart';
-import 'widgets/commonWidgets/customRow.dart';
+import 'widgets/customRow.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding:const EdgeInsets.only(left: 16, top: 25),
+              padding: const EdgeInsets.only(left: 16, top: 25),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: CircleAvatar(
@@ -41,10 +41,15 @@ class _ProfilePageState extends State<ProfilePage> {
                         ))),
               ),
             ),
+            SizedBox(
+              height: 15.h,
+            ),
             Stack(children: [
-              const CircleAvatar(
-                backgroundImage: AssetImage("assets/images/image 2.jpg"),
-                radius: 50,
+              CircleAvatar(
+                backgroundImage: const AssetImage(
+                  "assets/images/image 2.jpg",
+                ),
+                radius: 50.r,
               ),
               Positioned(
                 bottom: 0,
@@ -60,13 +65,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   child: const Icon(
                     Icons.camera_alt_outlined,
+                    size: 15,
                     color: Color(0xFFA5A5A5),
                   ),
                 ),
               )
             ]),
-            const SizedBox(
-              height: 12,
+            SizedBox(
+              height: 12.h,
             ),
             Text(
               'Hannibal Smith',
@@ -102,41 +108,61 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      CustomRow(heading:  "Order History", text:    "Track your order & See previous orders",onPressed:  () {
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
-                return const OderHistory();
-                }));
-                },leadingimages: const AssetImage("assets/images/b22.png",), validate: true,),
+                      CustomRow(
+                        heading: "Order History",
+                        text: "Track your order & See previous orders",
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const OderHistory();
+                          }));
+                        },
+                        leadingimages: const AssetImage(
+                          "assets/images/b22.png",
+                        ),
+                        //
+                      ),
                       Divider(
                         thickness: 0.50,
                         color: const Color(0xFF2C2C2C),
                         height: 16.h,
                       ),
-                      CustomRow(heading:    "Settings", text:     "Personal  Data, Change Password, Chat settings",onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const SettingPage();
-                            }));
-                      } ,leadingimages: const AssetImage("assets/images/b14.png"), validate: true,),
-
+                      CustomRow(
+                        heading: "Settings",
+                        text: "Personal  Data, Change Password, Chat settings",
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const SettingPage();
+                          }));
+                        },
+                        leadingimages:
+                            const AssetImage("assets/images/b14.png"),
+                      ),
                       Divider(
                         thickness: 0.50,
                         color: const Color(0xFF2C2C2C),
                         height: 16.h,
                       ),
-                      CustomRow(heading:    "Rate Us", text: "Feed back",onPressed: (){},leadingimages: const AssetImage("assets/images/b13.png"), validate: true,),
-
+                      CustomRow(
+                        heading: "Rate Us",
+                        text: "Feed back",
+                        onPressed: () {},
+                        leadingimages:
+                            const AssetImage("assets/images/b13.png"),
+                      ),
                       Divider(
                         thickness: 0.50,
                         color: const Color(0xFF2C2C2C),
                         height: 16.h,
                       ),
-                       CustomRow(onPressed: (){},
-                        heading:  'Log out', text: 'Log out your Account',leadingimages: const AssetImage("assets/images/b12.png"), validate: true,),
-
-
-
+                      CustomRow(
+                        onPressed: () {},
+                        heading: 'Log out',
+                        text: 'Log out your Account',
+                        leadingimages:
+                            const AssetImage("assets/images/b12.png"),
+                      ),
                     ],
                   ),
                 ),
@@ -148,5 +174,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
-

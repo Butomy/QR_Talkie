@@ -11,11 +11,13 @@ class AppBarCustom extends StatelessWidget {
   List<Widget>? action;
   Widget? leading;
   TextStyle? titleStyle;
+  Color? leadingIconColor;
   AppBarCustom(
       {Key? key,
       this.title,
       this.centerTitle = true,
       this.titleStyle,
+      this.leadingIconColor = primaryColor,
       this.leading,
       this.action,
       this.elivation = 0})
@@ -24,6 +26,7 @@ class AppBarCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      surfaceTintColor: Colors.transparent,
       bottom: const PreferredSize(
         preferredSize: Size.fromHeight(1),
         child: Divider(height: 1),
@@ -42,10 +45,10 @@ class AppBarCustom extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.grey)),
-              child: const Center(
+              child: Center(
                 child: Icon(
                   Icons.chevron_left,
-                  color: primaryColor,
+                  color: leadingIconColor,
                 ),
               ),
             ),

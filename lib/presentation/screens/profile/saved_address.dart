@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/profile/widgets/add_address.dart';
+import 'package:qr_talkie/presentation/screens/profile/add_address.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
 import '../../../../utils/colors.dart';
