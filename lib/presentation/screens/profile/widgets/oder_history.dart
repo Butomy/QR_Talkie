@@ -116,7 +116,7 @@ class _OderHistoryState extends State<OderHistory> {
                         Container(
                         margin: EdgeInsets.only(top: 12.h),
                         width: double.infinity.w,
-                        height: MediaQuery.of(context).size.height / 6.5,
+                  padding: EdgeInsets.symmetric(vertical: 12),
                         decoration: ShapeDecoration(
                           color: const Color(0xFFF0EFEF),
                           shape: RoundedRectangleBorder(
@@ -129,8 +129,8 @@ class _OderHistoryState extends State<OderHistory> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 12, vertical: 13.67),
+                                  margin: const EdgeInsets.only(right: 12,
+                                  left: 12, bottom:14),
                                   width: 77.27.w,
                                   height: 66.59.h,
                                   decoration: ShapeDecoration(
@@ -197,7 +197,7 @@ class _OderHistoryState extends State<OderHistory> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(11.47),
+                              padding: const EdgeInsets.only(top: 11.47,left: 11.47),
                               child: Row(
                                 children: [
                                   Text(
