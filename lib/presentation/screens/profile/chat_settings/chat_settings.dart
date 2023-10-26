@@ -4,6 +4,8 @@ import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
+import '../../../widgets/appbar_custom.dart';
+
 class ChatSettings extends StatefulWidget {
   const ChatSettings({Key? key}) : super(key: key);
 
@@ -20,44 +22,20 @@ class _ChatSettingsState extends State<ChatSettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: white,
-        centerTitle: true,
-        title: Text(
-          'Chat Settings',
-          textAlign: TextAlign.center,
-          style: CustomFontStyle().common(
-            color: const Color(0xFF2C2C2C),
+      backgroundColor: white,
+      appBar: PreferredSize(
+        preferredSize:
+            Size(AppBar().preferredSize.width, AppBar().preferredSize.height),
+        child: AppBarCustom(
+          leadingIconColor: black2c,
+          title: "Chat Settings",
+          titleStyle: CustomFontStyle().common(
+            color: const Color(0xFF2B2B2B),
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
+            height: 0,
           ),
         ),
-        leadingWidth: 140,
-        leading: Row(
-          children: [
-            SizedBox(
-              width: 16.w,
-            ),
-            Container(
-              padding: const EdgeInsets.all(1.0),
-              decoration: const BoxDecoration(
-                color: Color(0Xffd6d6d6), // Border color
-                shape: BoxShape.circle,
-              ),
-              child:  CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 21,
-                child:IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: Color(0xFF2C2C2C),
-                ),)
-              ),
-            ),
-          ],
-        ),
-        bottom: PreferredSize(
-            preferredSize: Size.fromHeight(16.0.h), child: const Divider()),
       ),
       body: SafeArea(
         child: Column(

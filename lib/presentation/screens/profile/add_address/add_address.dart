@@ -91,102 +91,18 @@ class _AddAddressState extends State<AddAddress> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 32.15.h,
-                      width: MediaQuery.of(context).size.width / 4.5,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            isSelect = !isSelect;
-                            isSelected = false;
-                            Selected = false;
-                          });
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              isSelect ? primaryColor : lightblue),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          'Home',
-                          style: CustomFontStyle().common(
-                            color: isSelect ? white : primaryColor,
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
+                    addressTypeButton(
+                        context: context, text: "Home", onTap: () {}),
                     SizedBox(
                       width: 9.39.w,
                     ),
-                    SizedBox(
-                      height: 32.15.h,
-                      width: MediaQuery.of(context).size.width / 4.5,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            isSelected = !isSelected;
-                            isSelect = false;
-                            Selected = false;
-                          });
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              isSelected ? primaryColor : lightblue),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          'Work',
-                          style: CustomFontStyle().common(
-                            color: isSelected ? white : primaryColor,
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
+                    addressTypeButton(
+                        context: context, text: "Work", onTap: () {}),
                     SizedBox(
                       width: 9.39.w,
                     ),
-                    SizedBox(
-                      height: 32.15.h,
-                      width: MediaQuery.of(context).size.width / 4.5,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            Selected = !Selected;
-                            isSelect = false;
-                            isSelected = false;
-                          });
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Selected ? primaryColor : lightblue),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          'Other',
-                          style: CustomFontStyle().common(
-                            color: Selected ? white : primaryColor,
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
+                    addressTypeButton(
+                        context: context, text: "Other", onTap: () {}),
                   ],
                 ),
               ],
@@ -211,4 +127,30 @@ class _AddAddressState extends State<AddAddress> {
       ),
     );
   }
+}
+
+Widget addressTypeButton(
+    {BuildContext? context, String? text, void Function()? onTap}) {
+  return ElevatedButton(
+    onPressed: onTap,
+    style: ButtonStyle(
+      minimumSize: MaterialStateProperty.all(Size(85.w, 33.h)),
+      textStyle: MaterialStateProperty.all(
+        CustomFontStyle().common(
+          color: Colors.white,
+          fontSize: 11.sp,
+          fontWeight: FontWeight.w500,
+          height: 0,
+        ),
+      ),
+      foregroundColor: MaterialStateProperty.all(Colors.white),
+      backgroundColor: MaterialStateProperty.all(primaryColor),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+      ),
+    ),
+    child: Text(text ?? ''),
+  );
 }

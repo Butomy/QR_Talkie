@@ -41,6 +41,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 80,
       child: TextFormField(
         onTap: widget.onTap,
         readOnly: widget.readonly,
@@ -62,8 +63,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fillColor: const Color(0xFFF0EFEF),
             filled: true,
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
-            // constraints: BoxConstraints(minHeight: 65.h),
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            constraints: BoxConstraints(minHeight: 65.h),
             hintText: widget.hintText,
             hintStyle: widget.hintstyle ??
                 CustomFontStyle().common(
@@ -88,7 +89,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     : null),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Color(0xFFF0EFEF))),
+                borderSide: const BorderSide(color: primaryColor)),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(color: Colors.redAccent)),

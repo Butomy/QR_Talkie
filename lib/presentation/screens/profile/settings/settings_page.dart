@@ -9,8 +9,8 @@ import 'package:qr_talkie/utils/custom_font_style.dart';
 
 import '../../../widgets/appbar_custom.dart';
 import '../../../widgets/custom_button.dart';
-import '../chat_settings.dart';
-import '../personal_data.dart';
+import '../chat_settings/chat_settings.dart';
+import '../personal_data/personal_data.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
