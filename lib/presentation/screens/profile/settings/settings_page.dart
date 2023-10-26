@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/screens/profile/saved_address.dart';
+import 'package:qr_talkie/presentation/screens/profile/saved_address/saved_address.dart';
 
 import 'package:qr_talkie/presentation/screens/profile/widgets/customRow.dart';
 
