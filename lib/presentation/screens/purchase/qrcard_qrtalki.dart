@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:qr_talkie/presentation/screens/profile/widgets/checkout1.dart';
+import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -11,9 +14,10 @@ class QrCard extends StatefulWidget {
   @override
   State<QrCard> createState() => _QrCardState();
 }
-
 final controller = PageController(viewportFraction: 0.8, keepPage: true);
-
+// ignore: non_constant_identifier_names
+String ?Select ='Regular - 150 AED';
+int count=0;
 class _QrCardState extends State<QrCard> {
   @override
   Widget build(BuildContext context) {
@@ -32,38 +36,27 @@ class _QrCardState extends State<QrCard> {
                 width: 50.69.w,
                 height: 48.h,
                 decoration: ShapeDecoration(
-                  color: const Color(0xFFF0EFEF),
+                  color: ash_eef,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
+                      borderRadius: BorderRadius.circular(8.r)),
                 ),
-                child: const Icon(
-                  Icons.star_border,
-                  color: Color(0xFF979797),
-                ),
+                child:
+                Center(child: SvgPicture.asset("assets/svgs/star.svg",width: 24.93.w,height: 24.93.h,)),
+
+                // Image(image: AssetImage("assets/images/star.svg"),),
               ),
               SizedBox(
                 width: 8.92.w,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width / 1.5.w,
-                height: 48.h,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFF006CEC),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                ),
-                child: Center(
-                  child: Text(
-                    'Place Order',
-                    textAlign: TextAlign.center,
-                    style: CustomFontStyle().common(
-                      color: white,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+              CustomButton(text:    'Place Order',textStyle: CustomFontStyle().common(  fontSize: 16.sp,
+                fontWeight: FontWeight.w500,color: white,) ,onPress: (){Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return const CheckOutOne();
+              }
               )
+              );
+              },
+                textColor: white,bgColor:primaryColor,borderRadius: BorderRadius.circular(8.r),minSize: Size( MediaQuery.of(context).size.width / 1.5.w, 48.h),),
+
             ],
           ),
         ),
@@ -86,7 +79,7 @@ class _QrCardState extends State<QrCard> {
                   decoration: ShapeDecoration(
                       color: red,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8))),
+                          borderRadius: BorderRadius.circular(8.r))),
                   child: const Image(
                     image: AssetImage(
                       "assets/images/qr-code-table 1.png",
@@ -98,10 +91,10 @@ class _QrCardState extends State<QrCard> {
                 left: 20,
                 top: 35,
                 right: MediaQuery.of(context).size.width / 1.w,
-                child: const Icon(
+                child: IconButton(onPressed: (){Navigator.pop(context);}, icon:  const Icon(
                   Icons.arrow_back,
                   color: white,
-                )),
+                ))),
             Positioned(
               // top: 9,
               bottom: 0,
@@ -109,20 +102,20 @@ class _QrCardState extends State<QrCard> {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 1.5.h,
-                decoration: const ShapeDecoration(
+                decoration: ShapeDecoration(
                   color: white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(16),
+                      topLeft: Radius.circular(16.r),
+                      topRight: Radius.circular(16.r),
                     ),
                   ),
                   shadows: [
                     BoxShadow(
-                      color: Color(0x19000000),
-                      blurRadius: 4,
-                      offset: Offset(0, -2),
-                      spreadRadius: 0,
+                      color: const Color(0x19000000),
+                      blurRadius: 4.r,
+                      offset: const Offset(0, -2),
+                      spreadRadius: 0.r,
                     )
                   ],
                 ),
@@ -138,8 +131,8 @@ class _QrCardState extends State<QrCard> {
                           controller: controller, // PageController
                           count: 4,
                           effect: ExpandingDotsEffect(
-                            activeDotColor: const Color(0xFF006CEC),
-                            dotColor: Color(0x490086EC),
+                            activeDotColor: primaryColor,
+                            dotColor: primlight,
                             dotWidth: 5.58.w,
                             dotHeight: 5.58.h,
                           ), // your preferred effect
@@ -155,7 +148,7 @@ class _QrCardState extends State<QrCard> {
                           'QR Card by QR Talki',
                           textAlign: TextAlign.center,
                           style: CustomFontStyle().common(
-                            color: const Color(0xFF2C2C2C),
+                            color: black2c,
                             fontSize: 17.sp,
                             fontWeight: FontWeight.w600,
                           ),
@@ -164,7 +157,7 @@ class _QrCardState extends State<QrCard> {
                           'AED - 150.00',
                           textAlign: TextAlign.center,
                           style: CustomFontStyle().common(
-                            color: const Color(0xFF006CEC),
+                            color: primaryColor,
                             fontSize: 14.77.sp,
                             fontWeight: FontWeight.w600,
                           ),
@@ -175,7 +168,7 @@ class _QrCardState extends State<QrCard> {
                       'Type - Regular',
                       textAlign: TextAlign.center,
                       style: CustomFontStyle().common(
-                        color: const Color(0xFFC0C0C0),
+                        color: greyc0,
                         fontSize: 13.27.sp,
                         fontWeight: FontWeight.w500,
                       ),
@@ -185,23 +178,50 @@ class _QrCardState extends State<QrCard> {
                     ),
                     Text(
                       'Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-                      style: TextStyle(
+                      style: CustomFontStyle().common(
                         color: black.withOpacity(0.5600000023841858),
                         fontSize: 12.83.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Container(
+                PopupMenuButton<String>(
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  offset: Offset(100.w, 30.h),
+                  onSelected: (String value) {
+                    setState(() {
+                      Select = value;
+                    });
+                  },
+                  itemBuilder: (BuildContext context) {
+                    return <PopupMenuEntry<String>>[
+                      const PopupMenuItem<String>(
+                        value: 'Regular - 150 AED',
+                        child: Text('Regular - 150 AED'),
+                      ),
+                      const PopupMenuItem<String>(
+                        value: 'Regular - 250 AED',
+                        child: Text('Regular - 250 AED'),
+                      ),
+                      const PopupMenuItem<String>(
+                        value: 'Regular - 350 AED',
+                        child: Text('Regular - 350 AED'),
+                      ),
+                    ];
+                  },
+                  child:Container(
                       margin: const EdgeInsets.only(top: 11.25, bottom: 17),
                       decoration: ShapeDecoration(
-                        color: const Color(0xFFF0EFEF),
+                        color: ash_eef,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6)),
-                        shadows: const [
+                            borderRadius: BorderRadius.circular(6.r)),
+                        shadows:  [
                           BoxShadow(
-                            color: Color(0x0FEA4C89),
-                            blurRadius: 16,
-                            offset: Offset(0, 0),
+                            color: const Color(0x0FEA4C89),
+                            blurRadius: 16.r,
+                            offset: const Offset(0, 0),
                             spreadRadius: 0,
                           )
                         ],
@@ -210,45 +230,62 @@ class _QrCardState extends State<QrCard> {
                       height: 56.h,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 18),
-                      child: Row(
+                      child:
+
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             child: Text(
-                              'Regular - 150 AED',
+                              Select.toString(),
                               style: CustomFontStyle().common(
-                                color: const Color(0xFF333333),
+                                color: black33,
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
-                          Container(
-                              width: 24.w,
-                              height: 24.h,
-                              decoration: ShapeDecoration(
-                                color: const Color(0x190086EC),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(69.33),
-                                ),
-                              ),
-                              child: const Icon(
-                                Icons.arrow_drop_down,
-                                color: Color(0xFF006CEC),
-                              )),
+                          SvgPicture.asset("assets/svgs/Drop down icon.svg",width: 24.w,height: 24.h,),
+                          // DropdownButton<String>(borderRadius: BorderRadius.circular(12.r),underline: SizedBox(),
+                          //   items: const [
+                          //     DropdownMenuItem<String>(
+                          //       value: 'Regular - 150 AED',
+                          //       child: Text('Regular - 150 AED'),
+                          //     ),
+                          //     DropdownMenuItem<String>(
+                          //       value: 'Regular - 250 AED',
+                          //       child: Text('Regular - 250 AED'),
+                          //     ),
+                          //     DropdownMenuItem<String>(
+                          //       value: 'Regular - 350 AED',
+                          //       child: Text('Regular - 350 AED'),
+                          //     ),
+                          //   ],
+                          //   onChanged: (String? selectedValue) {
+                          //     Select=selectedValue;
+                          //     setState(() {
+                          //
+                          //     });
+                          //   },
+                          // )
+
                         ],
-                      ),
-                    ),
+                      )
+
+                  ),
+                ),
+
+
                     Container(
                       decoration: ShapeDecoration(
                         color: const Color(0xFFF0EFEF),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),
-                        shadows: const [
+                        shadows:  [
                           BoxShadow(
-                            color: Color(0x0FEA4C89),
-                            blurRadius: 16,
-                            offset: Offset(0, 0),
+                            color: const Color(0x0FEA4C89),
+                            blurRadius: 16.r,
+                            offset: const Offset(0, 0),
                             spreadRadius: 0,
                           )
                         ],
@@ -264,50 +301,60 @@ class _QrCardState extends State<QrCard> {
                             child: Text(
                               'Quantity',
                               style: CustomFontStyle().common(
-                                color: const Color(0xFF333333),
+                                color: black33,
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
-                          Container(
-                              margin: EdgeInsets.only(right: 11),
-                              width: 24.w,
-                              height: 24.h,
-                              decoration: ShapeDecoration(
-                                color: const Color(0x190086EC),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(69.33),
+
+                          InkWell(onTap: (){
+                            if(count>0) {
+                              count--;
+                            }
+                          setState(() {});},
+                            child: Container(
+                                margin: const EdgeInsets.only(right: 5),
+                                width: 24.w,
+                                height: 24.h,
+                                decoration: ShapeDecoration(
+                                  color: const Color(0x190086EC),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(69.33.r),
+                                  ),
                                 ),
-                              ),
-                              child: const Icon(
-                                Icons.remove_sharp,
-                                color: Color(0xFF006CEC),
-                                size: 15,
-                              )),
+                                child: const Icon(
+                                  Icons.remove_sharp,
+                                  color: primaryColor,
+                                  size: 15,
+                                )),
+                          ),
                           Text(
-                            '01',
+                              count.toString().padLeft(2,"0"),
                             style: CustomFontStyle().common(
-                              color: const Color(0xFF333333),
+                              color: black33,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Container(
-                              margin: EdgeInsets.only(left: 11.w),
-                              width: 24.w,
-                              height: 24.h,
-                              decoration: ShapeDecoration(
-                                color: const Color(0x190086EC),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(69.33),
+                          InkWell(onTap: (){  count++;
+                          setState(() {});},
+                            child: Container(
+                                margin: EdgeInsets.only(left: 5.w),
+                                width: 24.w,
+                                height: 24.h,
+                                decoration: ShapeDecoration(
+                                  color: const Color(0x190086EC),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(69.33),
+                                  ),
                                 ),
-                              ),
-                              child: const Icon(
-                                Icons.add,
-                                color: Color(0xFF006CEC),
-                                size: 15,
-                              )
+                                child:  Icon(
+                                  Icons.add,
+                                  color: primaryColor,
+                                  size: 15.sp,
+                                )
+                            ),
                           ),
                         ],
                       ),
@@ -337,7 +384,7 @@ class _QrCardState extends State<QrCard> {
                           Text(
                             'Total',
                             style: CustomFontStyle().common(
-                              color: const Color(0xFF333333),
+                              color: black33,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
@@ -346,7 +393,7 @@ class _QrCardState extends State<QrCard> {
                             'AED  150.00',
                             textAlign: TextAlign.center,
                             style: CustomFontStyle().common(
-                              color: const Color(0xFF333333),
+                              color:black33,
                               fontSize: 14.55.sp,
                               fontWeight: FontWeight.w600,
                             ),

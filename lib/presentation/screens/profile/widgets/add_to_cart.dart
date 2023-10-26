@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/purchase/qrcard_qrtalki.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
@@ -33,32 +34,32 @@ class _AddCartState extends State<AddCart> {
       backgroundColor: black.withOpacity(0.5),
       appBar: AppBar(
         elevation: 0,
-        leadingWidth: 40,leading: const Icon(Icons.arrow_back,color: white,),
+        leadingWidth: 40,leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back,color: white,),),
         backgroundColor: black.withOpacity(0.5),
-        centerTitle: true,title: const Row(mainAxisAlignment: MainAxisAlignment.center,
+        centerTitle: true,title:  Row(mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image(image: AssetImage("assets/images/Group 331.png"),
+          Image(image: const AssetImage("assets/images/Group 331.png"),
 
-            width: 30.08,
-            height: 29.29,),
+            width: 30.08.w,
+            height: 29.29.h,),
         
         Text.rich(
           TextSpan(
             children: [
               TextSpan(
                 text: 'QR ',
-                style: TextStyle(
-                  color: Color(0xFF006CEC),
-                  fontSize: 16.87,
+                style: CustomFontStyle().common(
+                  color:primaryColor,
+                  fontSize: 16.87.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
 
               TextSpan(
                 text: 'Talkie ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.87,
+                style: CustomFontStyle().common(
+                  color: white,
+                  fontSize: 16.87.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -83,14 +84,14 @@ class _AddCartState extends State<AddCart> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(padding: EdgeInsets.symmetric(vertical: 10),
+        child: Container(padding: const EdgeInsets.symmetric(vertical: 10),margin: const EdgeInsets.only(top: 15),
           width: double.infinity,
-          decoration: const ShapeDecoration(
+          decoration: ShapeDecoration(
             color:white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16),
-                topRight: Radius.circular(16),
+                topLeft: Radius.circular(16.r),
+                topRight: Radius.circular(16.r),
               ),
             ),
           ),
@@ -100,21 +101,21 @@ class _AddCartState extends State<AddCart> {
                Container(margin: const EdgeInsets.only(left: 16,bottom:24,right: 16,top: 18),
                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 7),
                width: double.infinity,
-               height: 36,
+               height: 36.h,
 
                  decoration: ShapeDecoration(
                    color: const Color(0x1E767680),
                    shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(10),
+                     borderRadius: BorderRadius.circular(10.r),
                    ),
                  ),
                  child: Row(
                    children: [
-                     const Icon(Icons.search,color: Color(0x993C3C43),size: 15.63,),
+                     Icon(Icons.search,color:grey43,size: 15.78.sp,),
                      Text(
                        'Search',
                        style:  CustomFontStyle().common(
-                         color: const Color(0x993C3C43),
+                         color: grey43,
                          fontSize: 17.sp,
                          fontWeight: FontWeight.w400,
                        ),
@@ -151,7 +152,7 @@ class _AddCartState extends State<AddCart> {
                              Text(
                                'QR card by Qr talki',
                                style: CustomFontStyle().common(
-                                 color: const Color(0xFF2C2C2C),
+                                 color: black2c,
                                  fontSize: 15.sp,
                                  fontWeight: FontWeight.w500,
                                ),
@@ -160,7 +161,7 @@ class _AddCartState extends State<AddCart> {
                              Text(
                                'Regular',
                                style:  CustomFontStyle().common(
-                                 color: Colors.black.withOpacity(0.5),
+                                 color: black.withOpacity(0.5),
                                  fontSize: 14.sp,
                                  fontWeight: FontWeight.w500,
                                ),
@@ -171,7 +172,7 @@ class _AddCartState extends State<AddCart> {
                                    TextSpan(
                                      text: 'AED ',
                                      style:  CustomFontStyle().common(
-                                       color: const Color(0xFF2C2C2C),
+                                       color:black2c,
                                        fontSize: 14.sp,
                                        fontWeight: FontWeight.w500,
                                      ),
@@ -180,7 +181,7 @@ class _AddCartState extends State<AddCart> {
                                    TextSpan(
                                      text: '150.00 ',
                                      style:  CustomFontStyle().common(
-                                       color: Colors.black.withOpacity(0.5),
+                                       color:black.withOpacity(0.5),
                                        fontSize: 12.sp,
                                        fontWeight: FontWeight.w500,
                                      ),
@@ -189,14 +190,14 @@ class _AddCartState extends State<AddCart> {
                                    TextSpan(
                                      text: '120.00 ',
                                      style:  CustomFontStyle().common(
-                                       color: const Color(0xFF2C2C2C),
+                                       color:black2c,
                                        fontSize: 14.sp,
                                        fontWeight: FontWeight.w500,
                                      ),
                                    ),
                                    TextSpan(text: '26% OFF',
                                      style: CustomFontStyle().common(
-                                       color: const Color(0xFF006CEC),
+                                       color: primaryColor,
                                        fontSize: 12.sp,
                                        fontWeight: FontWeight.w500,
                                      ),
@@ -210,52 +211,57 @@ class _AddCartState extends State<AddCart> {
                          ),
                        ),
                        Padding(
-                         padding: const EdgeInsets.symmetric(vertical: 13,horizontal: 7),
+                         padding: const EdgeInsets.only(top: 13,left: 7,right: 7),
                          child: CustomButton(
                            text:" Add to cart",textStyle: CustomFontStyle().common(
-                           color: Colors.white,
+                           color:white,
                            fontSize: 14.sp,
                            fontWeight: FontWeight.w500,
                          ),
-                           bgColor: const Color(0xFF006CEC),onPress: (){},
+                           bgColor: primaryColor,onPress: (){
+                             Navigator.push(context, MaterialPageRoute(builder: (context){
+                               return QrCard();
+                             }));
+
+                         },
                          ),
                        )
                      ],
                    );
                  },),
                ),
-
+SizedBox(height: 70.h,),
 
            ],),
 
         ),
       ),
         floatingActionButton:Container(
-          width: MediaQuery.of(context).size.width/1.1,
+          width: MediaQuery.of(context).size.width/1.1.w,
           height: 70.h,
-          padding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
           decoration: ShapeDecoration(
-            color: Color(0xFF006CEC),
+            color:primaryColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(15.r),
             ),
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                   Text(
                     '2 item | AED 240',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                    style:CustomFontStyle().common(
+                      color:white,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
                     'Delivery Charge may apply',
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: CustomFontStyle().common(
+                      color: white,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
@@ -269,13 +275,13 @@ class _AddCartState extends State<AddCart> {
                   Text(
                     'View Cart ',
                     textAlign: TextAlign.right,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: CustomFontStyle().common(
+                      color:white,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Icon(Icons.arrow_forward_ios_outlined,color: white,)
+                  const Icon(Icons.arrow_forward_ios_outlined,color: white,)
                 ],)
 
               ],)

@@ -1,6 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_talkie/presentation/screens/profile/widgets/add_to_cart.dart';
+import 'package:qr_talkie/presentation/screens/purchase/qrcard_qrtalki.dart';
 import 'package:qr_talkie/presentation/screens/splash_screen/splashscreen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "Poppins",
             useMaterial3: true,
           ),
-          home: SplashScreen()),
+          home: AddCart()),
     );
   }
 }
