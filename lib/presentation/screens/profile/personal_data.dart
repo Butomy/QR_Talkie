@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
-import '../../../../utils/colors.dart';
+import '../../../utils/colors.dart';
 
 class PersonalData extends StatefulWidget {
   const PersonalData({Key? key}) : super(key: key);

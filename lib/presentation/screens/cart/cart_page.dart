@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qr_talkie/presentation/widgets/appbar_custom.dart';
+import 'package:qr_talkie/presentation/widgets/custom_appbar.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';

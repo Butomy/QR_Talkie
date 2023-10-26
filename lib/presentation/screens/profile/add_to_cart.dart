@@ -27,6 +27,8 @@ List<ImageProvider> images=[
 
 
 ];
+
+TextEditingController Search= TextEditingController();
 class _AddCartState extends State<AddCart> {
   @override
   Widget build(BuildContext context) {
@@ -95,33 +97,50 @@ class _AddCartState extends State<AddCart> {
               ),
             ),
           ),
+
           child:
           Column(children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16,bottom:24,right: 16,top: 18),
+              child: TextFormField(
+                onTap: (){},
+                style: CustomFontStyle().common(
+                    color: const Color(0xFF242424),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.sp),
+                maxLength: 1,
+                maxLines: 1,
+                controller: Search,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                cursorColor: primaryColor,
+                decoration: InputDecoration(
+                    counter: const SizedBox.shrink(),
+                    fillColor: const Color(0xFFF0EFEF),
+                    filled: true,
+                    contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+                    hintText:"Search",
+                    hintStyle: CustomFontStyle().common(
+                      color: grey43,
+                      fontSize: 17.sp,
+                    ),prefixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Color(0xFF8E8E93),)),
+                    focusColor: Color(0x1E767680),
 
-               Container(margin: const EdgeInsets.only(left: 16,bottom:24,right: 16,top: 18),
-               padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 7),
-               width: double.infinity,
-               height: 36.h,
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color:Colors.transparent)),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: Colors.redAccent)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: Colors.transparent)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: Colors.transparent))),
+              ),
+            ),
 
-                 decoration: ShapeDecoration(
-                   color: const Color(0x1E767680),
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(10.r),
-                   ),
-                 ),
-                 child: Row(
-                   children: [
-                     Icon(Icons.search,color:grey43,size: 15.78.sp,),
-                     Text(
-                       'Search',
-                       style:  CustomFontStyle().common(
-                         color: grey43,
-                         fontSize: 17.sp,
-                         fontWeight: FontWeight.w400,
-                       ),
-                     )
-                 ],),
-               ),
 
                GridView.count(
                  childAspectRatio: 0.55,
