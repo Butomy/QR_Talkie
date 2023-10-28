@@ -5,7 +5,7 @@ import 'package:qr_talkie/presentation/screens/chat/chatpage.dart';
 import 'package:qr_talkie/presentation/screens/home_main_page/home_main.dart';
 import 'package:qr_talkie/presentation/screens/home_main_page/scan_purchase_updated_page.dart';
 import 'package:qr_talkie/presentation/screens/login/loginpage.dart';
-import 'package:qr_talkie/presentation/screens/purchase_link_qr/purchasepage.dart';
+import 'package:qr_talkie/presentation/screens/purchase_link_qr/scan_or_purchase_page.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/utils/colors.dart';
 
@@ -33,7 +33,7 @@ class _BottomnavigationbarcustomState extends State<Bottomnavigationbarcustom> {
         stateManagement: true, // Default is true.
         hideNavigationBarWhenKeyboardShows: true,
         context,
-        screens: const [HomemainPage(), Chatpage(), Purchasepage()],
+        screens: const [HomemainPage(), Chatpage(), ScanOrPurchaseScreen()],
         navBarHeight: 50.h,
         controller: controller,
         items: [

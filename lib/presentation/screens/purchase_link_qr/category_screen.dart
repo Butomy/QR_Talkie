@@ -117,7 +117,14 @@ class _CategorypageState extends State<Categorypage> {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return const CategoriesListTile();
+                  return CategoriesListTile(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const Assetspage();
+                      }));
+                    },
+                  );
                 },
                 separatorBuilder: (context, index) => SizedBox(
                       height: 10.h,

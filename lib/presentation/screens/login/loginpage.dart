@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_talkie/presentation/screens/home_main_page/home_main.dart';
 import 'package:qr_talkie/presentation/screens/login/widgets/social_button.dart';
+import 'package:qr_talkie/presentation/screens/profile/add_address/add_address.dart';
 import 'package:qr_talkie/presentation/screens/sign_up/signup_page.dart';
 import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
@@ -11,6 +14,7 @@ import 'package:qr_talkie/utils/validation_util.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_textfield.dart';
 import '../bottom_navigation/bottom_navigation.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -99,7 +103,20 @@ class _LoginPageState extends State<LoginPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomTextField(
-                          validator: ValidationUtil(context).phoneValidation,
+                          // validator: (val) {
+                          //   dynamic a = "100.5";
+                          //   if (val!.isEmpty) {
+                          //     return "enter number";
+                          //   } else {
+                          //     if (num.parse(val) <= num.parse(a)) {
+                          //       return "abc";
+                          //     } else {
+                          //       return "123";
+                          //     }
+                          //   }
+                          // },
+
+                          // ValidationUtil(context).phoneValidation,
                           hintText: "Phone number",
                           controller: numberCtrl,
                           keyboardType: TextInputType.number,
@@ -114,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         CustomTextField(
                           controller: passCtrl,
-                          validator: ValidationUtil(context).passwordValidation,
+                          // validator: ValidationUtil(context).passwordValidation,
                           hintText: "Password",
                           hintstyle: TextStyle(
                               fontSize: 14.sp,
@@ -143,14 +160,13 @@ class _LoginPageState extends State<LoginPage> {
                           textColor: white,
                           bgColor: primaryColor,
                           onPress: () {
-                            // if (_formKey.currentState!.validate()) {
-                            //
-                            // }
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const Bottomnavigationbarcustom();
-                              },
-                            ));
+                            forgetPass(emal: "sdfbsdf", pass: passCtrl.text);
+                            // if (_formKey.currentState!.validate()) {}
+                            // Navigator.push(context, MaterialPageRoute(
+                            //   builder: (context) {
+                            //     return const Bottomnavigationbarcustom();
+                            //   },
+                            // ));
                           },
                         ),
                         SizedBox(
@@ -269,5 +285,50 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future<void> login({String? emal, String? pass}) async {
+    var url = Uri.parse('https://apitextile.eyeterp.com/product/login');
+    var response = await http.post(url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "emailorphonenumber": emal,
+          "password": pass,
+        }));
+
+    if (response.statusCode == 200) {
+      debugPrint(jsonEncode(response.body));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AddAddress(),
+          ));
+    } else {
+      debugPrint(jsonEncode(response.body));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('${jsonEncode(response.body)}')));
+    }
+  }
+
+  Future<void> forgetPass({String? emal, String? pass}) async {
+    var url =
+        Uri.parse('https://apitextile.eyeterp.com/product/forgotpassword');
+    var response = await http.put(url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "emailorphonenumber": emal,
+          "password": pass,
+        }));
+
+    if (response.statusCode == 200) {
+      debugPrint(jsonEncode(response.body));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('${jsonEncode(response.body)}')));
+      Navigator.pop(context);
+    } else {
+      debugPrint(jsonEncode(response.body));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('${jsonEncode(response.body)}')));
+    }
   }
 }

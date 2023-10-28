@@ -9,11 +9,13 @@ class OrderTile extends StatelessWidget {
   final bool? isDelete;
   final bool? isForward;
   final void Function()? onTap;
+  final  bool isDate;
   const OrderTile(
       {Key? key,
       this.isCheck = false,
       this.isForward = false,
       this.isDelete = false,
+        this.isDate=true,
       this.onTap})
       : super(
           key: key,
@@ -125,7 +127,7 @@ class OrderTile extends StatelessWidget {
               SizedBox(
                 height: 8.h,
               ),
-              Row(
+              isDate==false? const SizedBox() :     Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -17,12 +17,14 @@ class CustomTextField extends StatefulWidget {
   final bool readonly;
   final FocusNode? focusNode;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   const CustomTextField(
       {super.key,
       this.controller,
       this.onTap,
       this.hintText,
       this.keyboardType,
+      this.prefixIcon,
       this.hintstyle,
       this.maxLine,
       this.validator,
@@ -87,6 +89,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         ),
                       )
                     : null),
+            prefixIcon: widget.prefixIcon,
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(color: primaryColor)),

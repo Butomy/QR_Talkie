@@ -7,16 +7,13 @@ import '../../utils/custom_font_style.dart';
 import '../screens/purchase_link_qr/assetspage.dart';
 
 class CategoriesListTile extends StatelessWidget {
-  const CategoriesListTile({Key? key}) : super(key: key);
+  final void Function()? onTap;
+  const CategoriesListTile({Key? key, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        // Navigator.push(context, MaterialPageRoute(builder: (context) {
-        //   return const Assetspage();
-        // }));
-      },
+      onTap: onTap,
       child: Container(
         height: 75.h,
         padding: const EdgeInsets.symmetric(horizontal: 10),

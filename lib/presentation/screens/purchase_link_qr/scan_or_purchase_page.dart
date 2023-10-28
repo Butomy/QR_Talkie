@@ -6,14 +6,16 @@ import 'package:qr_talkie/presentation/widgets/custom_button.dart';
 import 'package:qr_talkie/utils/colors.dart';
 import 'package:qr_talkie/utils/custom_font_style.dart';
 
-class Purchasepage extends StatefulWidget {
-  const Purchasepage({super.key});
+import '../purchase/purchase_card.dart';
+
+class ScanOrPurchaseScreen extends StatefulWidget {
+  const ScanOrPurchaseScreen({super.key});
 
   @override
-  State<Purchasepage> createState() => _PurchasepageState();
+  State<ScanOrPurchaseScreen> createState() => _ScanOrPurchaseScreenState();
 }
 
-class _PurchasepageState extends State<Purchasepage> {
+class _ScanOrPurchaseScreenState extends State<ScanOrPurchaseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,16 +138,17 @@ class _PurchasepageState extends State<Purchasepage> {
               text: 'Purchase QR code',
               bgColor: primaryColor,
               onPress: () {
-                // Navigator.push(context,MaterialPageRoute(builder:(context) {
-                //   return Unlockpage();
-                // },));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const PurchaseCardList();
+                  },
+                ));
               },
               textColor: white,
             ),
           ],
         ),
       ),
-      // bottomSheet: Bottomnavigationbarcustom(),
     );
   }
 }
