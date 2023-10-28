@@ -160,13 +160,12 @@ class _LoginPageState extends State<LoginPage> {
                           textColor: white,
                           bgColor: primaryColor,
                           onPress: () {
-                            forgetPass(emal: "sdfbsdf", pass: passCtrl.text);
                             // if (_formKey.currentState!.validate()) {}
-                            // Navigator.push(context, MaterialPageRoute(
-                            //   builder: (context) {
-                            //     return const Bottomnavigationbarcustom();
-                            //   },
-                            // ));
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return const Bottomnavigationbarcustom();
+                              },
+                            ));
                           },
                         ),
                         SizedBox(
@@ -285,50 +284,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
-
-  Future<void> login({String? emal, String? pass}) async {
-    var url = Uri.parse('https://apitextile.eyeterp.com/product/login');
-    var response = await http.post(url,
-        headers: {"Content-Type": "application/json"},
-        body: jsonEncode({
-          "emailorphonenumber": emal,
-          "password": pass,
-        }));
-
-    if (response.statusCode == 200) {
-      debugPrint(jsonEncode(response.body));
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => AddAddress(),
-          ));
-    } else {
-      debugPrint(jsonEncode(response.body));
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${jsonEncode(response.body)}')));
-    }
-  }
-
-  Future<void> forgetPass({String? emal, String? pass}) async {
-    var url =
-        Uri.parse('https://apitextile.eyeterp.com/product/forgotpassword');
-    var response = await http.put(url,
-        headers: {"Content-Type": "application/json"},
-        body: jsonEncode({
-          "emailorphonenumber": emal,
-          "password": pass,
-        }));
-
-    if (response.statusCode == 200) {
-      debugPrint(jsonEncode(response.body));
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${jsonEncode(response.body)}')));
-      Navigator.pop(context);
-    } else {
-      debugPrint(jsonEncode(response.body));
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${jsonEncode(response.body)}')));
-    }
   }
 }
